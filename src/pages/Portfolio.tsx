@@ -1,4 +1,15 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
+
+const VimeoPlayer = memo(() => (
+    <iframe
+        src='https://vimeo.com/showcase/11390101/embed2?autoplay=1&dnt=1'
+        allow='autoplay; fullscreen; picture-in-picture; encrypted-media'
+        frameBorder='0'
+        loading='lazy'
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+        title="Work Showcase"
+    ></iframe>
+));
 
 const Portfolio = () => {
     const [filter, setFilter] = useState('All');
@@ -32,13 +43,7 @@ const Portfolio = () => {
                 {/* Vimeo Showcase Embed */}
                 <div style={{ padding: '56.25% 0 0 0', position: 'relative', marginBottom: '4rem', backgroundColor: '#000', borderRadius: '8px', overflow: 'hidden' }}>
                     {showEmbed ? (
-                        <iframe
-                            src='https://vimeo.com/showcase/11390101/embed2?autoplay=1'
-                            allow='autoplay; fullscreen; clipboard-write;'
-                            frameBorder='0'
-                            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                            title="Work Showcase"
-                        ></iframe>
+                        <VimeoPlayer />
                     ) : (
                         <div 
                             style={{ 
