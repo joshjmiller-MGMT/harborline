@@ -28,6 +28,17 @@ const Portfolio = () => {
                     </p>
                 </div>
 
+                {/* Vimeo Showcase Embed */}
+                <div style={{ padding: '56.25% 0 0 0', position: 'relative', marginBottom: '4rem' }}>
+                    <iframe
+                        src='https://vimeo.com/showcase/11390101/embed2'
+                        allow='fullscreen; clipboard-write;'
+                        frameBorder='0'
+                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                        title="Work Showcase"
+                    ></iframe>
+                </div>
+
                 {/* Filter Controls */}
                 <div style={{ 
                     display: 'flex', 
