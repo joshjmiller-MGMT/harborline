@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 const Portfolio = () => {
     const [filter, setFilter] = useState('All');
+    const [showEmbed, setShowEmbed] = useState(false);
 
     const projects = [
         { id: 1, title: 'Neon Nights Festival', category: 'Concerts', image: '/hero.png', year: '2024' },
@@ -29,14 +30,71 @@ const Portfolio = () => {
                 </div>
 
                 {/* Vimeo Showcase Embed */}
-                <div style={{ padding: '56.25% 0 0 0', position: 'relative', marginBottom: '4rem' }}>
-                    <iframe
-                        src='https://vimeo.com/showcase/11390101/embed2'
-                        allow='fullscreen; clipboard-write;'
-                        frameBorder='0'
-                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                        title="Work Showcase"
-                    ></iframe>
+                <div style={{ padding: '56.25% 0 0 0', position: 'relative', marginBottom: '4rem', backgroundColor: '#000', borderRadius: '8px', overflow: 'hidden' }}>
+                    {showEmbed ? (
+                        <iframe
+                            src='https://vimeo.com/showcase/11390101/embed2?autoplay=1'
+                            allow='autoplay; fullscreen; clipboard-write;'
+                            frameBorder='0'
+                            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                            title="Work Showcase"
+                        ></iframe>
+                    ) : (
+                        <div 
+                            style={{ 
+                                position: 'absolute', 
+                                top: 0, 
+                                left: 0, 
+                                width: '100%', 
+                                height: '100%', 
+                                display: 'flex', 
+                                flexDirection: 'column',
+                                alignItems: 'center', 
+                                justifyContent: 'center',
+                                backgroundImage: 'url(/hero.png)',
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                cursor: 'pointer'
+                            }}
+                            onClick={() => setShowEmbed(true)}
+                        >
+                             <div style={{
+                                position: 'absolute',
+                                inset: 0,
+                                backgroundColor: 'rgba(0,0,0,0.5)',
+                            }}></div>
+                            
+                            <div style={{
+                                width: '80px',
+                                height: '80px',
+                                borderRadius: '50%',
+                                backgroundColor: 'rgba(255,255,255,0.2)',
+                                backdropFilter: 'blur(4px)',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                border: '2px solid rgba(255,255,255,0.8)',
+                                zIndex: 10,
+                                marginBottom: '1rem',
+                                transition: 'transform 0.2s'
+                            }}
+                            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                            onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                            >
+                                 <div style={{
+                                    width: 0,
+                                    height: 0,
+                                    borderTop: '12px solid transparent',
+                                    borderBottom: '12px solid transparent',
+                                    borderLeft: '20px solid #fff',
+                                    marginLeft: '4px'
+                                }}></div>
+                            </div>
+                            <span style={{ color: '#fff', zIndex: 10, fontSize: '1.2rem', fontWeight: 500, letterSpacing: '1px' }}>
+                                Load Video Showcase
+                            </span>
+                        </div>
+                    )}
                 </div>
 
                 {/* Filter Controls */}
