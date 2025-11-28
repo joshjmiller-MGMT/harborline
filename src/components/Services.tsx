@@ -18,46 +18,21 @@ const services = [
 
 const Services = () => {
     return (
-        <section id="services" style={{ padding: '8rem 0', backgroundColor: '#000' }}>
+        <section id="services" className="services-section">
             <div className="container">
                 <h2 className="section-title">Our Expertise</h2>
 
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: '2rem',
-                }}>
+                <div className="services-grid">
                     {services.map((service, index) => (
-                        <div key={index} style={{ position: 'relative', cursor: 'pointer' }}>
-                            <div style={{
-                                height: '400px',
-                                overflow: 'hidden',
-                                borderRadius: '8px',
-                                position: 'relative',
-                            }}>
-                                <img
-                                    src={service.image}
-                                    alt={service.title}
-                                    style={{
-                                        width: '100%',
-                                        height: '100%',
-                                        objectFit: 'cover',
-                                        transition: 'transform 0.5s ease',
-                                    }}
-                                    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-                                    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                                />
-                                <div style={{
-                                    position: 'absolute',
-                                    bottom: 0,
-                                    left: 0,
-                                    width: '100%',
-                                    padding: '2rem',
-                                    background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)',
-                                }}>
-                                    <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{service.title}</h3>
-                                    <p style={{ color: '#d4d4d8', fontSize: '0.9rem' }}>{service.description}</p>
-                                </div>
+                        <div key={index} className="service-card">
+                            <img
+                                src={service.image}
+                                alt={service.title}
+                                className="service-image"
+                            />
+                            <div className="service-content">
+                                <h3 className="service-title">{service.title}</h3>
+                                <p className="service-desc">{service.description}</p>
                             </div>
                         </div>
                     ))}

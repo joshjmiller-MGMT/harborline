@@ -17,25 +17,13 @@ const Contact = () => {
         });
     };
 
-    const inputStyle = {
-        padding: '1rem',
-        borderRadius: '2px',
-        border: '1px solid #333',
-        backgroundColor: '#000',
-        color: 'white',
-        fontSize: '1rem',
-        width: '100%',
-        outline: 'none',
-        transition: 'border-color 0.3s'
-    };
-
     return (
-        <div className="page-enter" style={{ paddingTop: '120px', paddingBottom: '4rem', minHeight: '100vh', backgroundColor: 'var(--color-bg)' }}>
+        <div className="page-enter contact-page">
             <div className="container">
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '6rem' }}>
+                <div className="contact-grid">
                     {/* Info Side */}
                     <div>
-                        <h1 style={{ fontSize: '3.5rem', fontWeight: 900, lineHeight: 1, marginBottom: '2rem' }}>Let's Create<br />Magic.</h1>
+                        <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 900, lineHeight: 1, marginBottom: '2rem' }}>Let's Create<br />Magic.</h1>
                         <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '4rem' }}>
                             We accept a limited number of commissions each year to ensure every event receives our full attention.
                         </p>
@@ -63,7 +51,7 @@ const Contact = () => {
                     </div>
 
                     {/* Form Side */}
-                    <div style={{ backgroundColor: 'var(--color-surface)', padding: '3rem', borderRadius: '4px' }}>
+                    <div className="contact-form-wrapper">
                         <form
                             name="contact"
                             method="POST"
@@ -72,9 +60,9 @@ const Contact = () => {
                         >
                             <input type="hidden" name="form-name" value="contact" />
 
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                            <div className="form-row">
                                 <div>
-                                    <label htmlFor="name" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#a1a1aa' }}>NAME</label>
+                                    <label htmlFor="name" className="form-label">NAME</label>
                                     <input
                                         type="text"
                                         id="name"
@@ -82,13 +70,11 @@ const Contact = () => {
                                         required
                                         value={formData.name}
                                         onChange={handleChange}
-                                        style={inputStyle}
-                                        onFocus={(e) => e.target.style.borderColor = 'var(--color-primary)'}
-                                        onBlur={(e) => e.target.style.borderColor = '#333'}
+                                        className="form-input"
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="email" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#a1a1aa' }}>EMAIL</label>
+                                    <label htmlFor="email" className="form-label">EMAIL</label>
                                     <input
                                         type="email"
                                         id="email"
@@ -96,24 +82,20 @@ const Contact = () => {
                                         required
                                         value={formData.email}
                                         onChange={handleChange}
-                                        style={inputStyle}
-                                        onFocus={(e) => e.target.style.borderColor = 'var(--color-primary)'}
-                                        onBlur={(e) => e.target.style.borderColor = '#333'}
+                                        className="form-input"
                                     />
                                 </div>
                             </div>
 
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                            <div className="form-row">
                                 <div>
-                                    <label htmlFor="eventType" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#a1a1aa' }}>EVENT TYPE</label>
+                                    <label htmlFor="eventType" className="form-label">EVENT TYPE</label>
                                     <select
                                         id="eventType"
                                         name="eventType"
                                         value={formData.eventType}
                                         onChange={handleChange}
-                                        style={inputStyle}
-                                        onFocus={(e) => e.target.style.borderColor = 'var(--color-primary)'}
-                                        onBlur={(e) => e.target.style.borderColor = '#333'}
+                                        className="form-input"
                                     >
                                         <option value="corporate">Corporate Event</option>
                                         <option value="wedding">Wedding</option>
@@ -122,22 +104,20 @@ const Contact = () => {
                                     </select>
                                 </div>
                                 <div>
-                                    <label htmlFor="date" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#a1a1aa' }}>DATE</label>
+                                    <label htmlFor="date" className="form-label">DATE</label>
                                     <input
                                         type="date"
                                         id="date"
                                         name="date"
                                         value={formData.date}
                                         onChange={handleChange}
-                                        style={inputStyle}
-                                        onFocus={(e) => e.target.style.borderColor = 'var(--color-primary)'}
-                                        onBlur={(e) => e.target.style.borderColor = '#333'}
+                                        className="form-input"
                                     />
                                 </div>
                             </div>
 
                             <div>
-                                <label htmlFor="budget" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#a1a1aa' }}>BUDGET RANGE</label>
+                                <label htmlFor="budget" className="form-label">BUDGET RANGE</label>
                                 <input
                                     type="text"
                                     id="budget"
@@ -145,23 +125,20 @@ const Contact = () => {
                                     placeholder="e.g. $10k - $20k"
                                     value={formData.budget}
                                     onChange={handleChange}
-                                    style={inputStyle}
-                                    onFocus={(e) => e.target.style.borderColor = 'var(--color-primary)'}
-                                    onBlur={(e) => e.target.style.borderColor = '#333'}
+                                    className="form-input"
                                 />
                             </div>
 
                             <div>
-                                <label htmlFor="message" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.9rem', color: '#a1a1aa' }}>TELL US MORE</label>
+                                <label htmlFor="message" className="form-label">TELL US MORE</label>
                                 <textarea
                                     id="message"
                                     name="message"
                                     rows={4}
                                     value={formData.message}
                                     onChange={handleChange}
-                                    style={{ ...inputStyle, resize: 'vertical' }}
-                                    onFocus={(e) => e.target.style.borderColor = 'var(--color-primary)'}
-                                    onBlur={(e) => e.target.style.borderColor = '#333'}
+                                    className="form-input"
+                                    style={{ resize: 'vertical' }}
                                 />
                             </div>
 
