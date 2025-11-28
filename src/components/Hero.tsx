@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
+
 const Hero = () => {
+
     return (
         <section style={{
             height: '100vh',
@@ -49,7 +52,7 @@ const Hero = () => {
                 }}>
                     We bring world-class talent to your most important events. Experience the difference of true professionalism.
                 </p>
-                <button className="btn">Request a Quote</button>
+                <Link to="/contact" className="btn">Request a Quote</Link>
             </div>
         </section>
     );
