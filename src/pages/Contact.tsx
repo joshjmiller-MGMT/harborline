@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SEO from '../components/SEO';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -18,7 +19,12 @@ const Contact = () => {
     };
 
     return (
-        <div className="page-enter contact-page">
+        <div className="contact-page page-enter">
+            <SEO
+                title="Contact Us | Book Harborline Entertainment"
+                description="Ready to elevate your event? Get in touch with Harborline to discuss your entertainment needs and get a custom quote."
+                canonical="/contact"
+            />
             <div className="container">
                 <div className="contact-grid">
                     {/* Info Side */}

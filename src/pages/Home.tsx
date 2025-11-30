@@ -1,12 +1,16 @@
 import Hero from '../components/Hero';
-import ServicesSection from '../components/Services'; // Reusing the section component
+import Services from '../components/Services';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 import { locations } from '../data/locations';
-import VideoPlaceholder from '../components/VideoPlaceholder';
 
 const Home = () => {
     return (
-        <div className="page-enter" style={{ backgroundColor: '#000', minHeight: '100vh' }}>
+        <>
+            <SEO
+                title="Harborline | Premier Event Entertainment Agency"
+                description="Harborline curates world-class entertainment for exclusive events in Washington DC, Baltimore, and beyond. Book top-tier bands and DJs."
+            />
             <Hero />
 
             {/* Intro Section */}
@@ -20,7 +24,7 @@ const Home = () => {
                     color: '#a1a1aa',
                     maxWidth: '800px',
                     margin: '0 auto 3rem',
-                    fontFamily: 'serif', // Adding a touch of elegance
+                    fontFamily: 'serif',
                     fontStyle: 'italic'
                 }}>
                     "We don't just fill a stage. We create the heartbeat of your event."
@@ -28,10 +32,7 @@ const Home = () => {
                 <div style={{ width: '60px', height: '2px', backgroundColor: '#2563eb', margin: '0 auto' }}></div>
             </section>
 
-            {/* Video Placeholder Section */}
-            <VideoPlaceholder caption="Watch Our Reel" />
-
-            <ServicesSection />
+            <Services />
 
             {/* Testimonials */}
             <section style={{ padding: '8rem 0', backgroundColor: '#09090b' }}>
@@ -85,7 +86,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     );
 };
 

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 const Services = () => {
     const services = [
@@ -23,7 +24,12 @@ const Services = () => {
     ];
 
     return (
-        <div className="page-enter" style={{ paddingTop: '120px', paddingBottom: '4rem', minHeight: '100vh', backgroundColor: '#000' }}>
+        <div className="page-enter" style={{ paddingTop: '120px', paddingBottom: '4rem', minHeight: '100vh', backgroundColor: 'var(--color-bg)' }}>
+            <SEO
+                title="Our Services | Corporate, Wedding & Private Events"
+                description="From high-energy dance bands to sophisticated jazz quartets, explore our range of entertainment services for any occasion."
+                canonical="/services"
+            />
             <div className="container">
                 <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
                     <h1 className="section-title">Our Services</h1>
@@ -34,29 +40,29 @@ const Services = () => {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
                     {services.map((service, index) => (
-                        <div key={index} className={`service-row ${index % 2 === 0 ? 'normal' : 'reverse'}`}>
+                        <div key={index} className={`service - row ${index % 2 === 0 ? 'normal' : 'reverse'} `}>
                             {/* Image Side */}
-                            <div className="service-img" style={{ 
+                            <div className="service-img" style={{
                                 position: 'relative'
                             }}>
-                                <div style={{ 
-                                    position: 'absolute', 
-                                    top: '20px', 
-                                    [index % 2 === 0 ? 'right' : 'left']: '20px', 
-                                    width: '100%', 
-                                    height: '100%', 
-                                    border: '1px solid #333', 
-                                    zIndex: 0 
+                                <div style={{
+                                    position: 'absolute',
+                                    top: '20px',
+                                    [index % 2 === 0 ? 'right' : 'left']: '20px',
+                                    width: '100%',
+                                    height: '100%',
+                                    border: '1px solid #333',
+                                    zIndex: 0
                                 }}></div>
                                 <img
                                     src={service.image}
                                     alt={service.title}
-                                    style={{ 
+                                    style={{
                                         position: 'relative',
                                         zIndex: 1,
-                                        borderRadius: '2px', 
-                                        width: '100%', 
-                                        height: '500px', 
+                                        borderRadius: '2px',
+                                        width: '100%',
+                                        height: '500px',
                                         objectFit: 'cover',
                                         filter: 'grayscale(100%)' // Stylistic choice
                                     }}

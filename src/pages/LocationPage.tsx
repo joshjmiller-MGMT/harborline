@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 interface LocationPageProps {
     city: string;
@@ -9,8 +10,28 @@ interface LocationPageProps {
 }
 
 const LocationPage = ({ city, image, title, intro, venues }: LocationPageProps) => {
+    const seoTitle = `${title} | Harborline`;
+    const seoDesc = `Premier live music and entertainment for events in ${city}. Serving top venues like ${venues.slice(0, 2).join(', ')}. Book your ${city} event today.`;
+
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": `Harborline - ${city}`,
+        "description": seoDesc,
+        "url": `https://harborline.com/locations/${city.toLowerCase().replace(' ', '-')}`,
+        "areaServed": city,
+        "image": `https://harborline.com${image}`
+    };
+
     return (
         <div style={{ backgroundColor: '#000', minHeight: '100vh' }}>
+            <SEO
+                title={seoTitle}
+                description={seoDesc}
+                image={image}
+                schema={schema}
+                canonical={`/locations/${city.toLowerCase().replace(' ', '-')}`}
+            />
             {/* Hero Section */}
             <section style={{
                 height: '60vh',

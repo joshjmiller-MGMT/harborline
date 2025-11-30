@@ -1,4 +1,5 @@
 import { useState, memo } from 'react';
+import SEO from '../components/SEO';
 
 const VimeoPlayer = memo(() => (
     <iframe
@@ -24,14 +25,19 @@ const Portfolio = () => {
         { id: 6, title: 'Summer Solstice Party', category: 'Private', image: '/corporate.png', year: '2024' },
     ];
 
-    const filteredProjects = filter === 'All' 
-        ? projects 
+    const filteredProjects = filter === 'All'
+        ? projects
         : projects.filter(p => p.category === filter);
 
     const categories = ['All', 'Corporate', 'Weddings', 'Concerts', 'Private'];
 
     return (
         <div className="page-enter" style={{ paddingTop: '120px', paddingBottom: '4rem', minHeight: '100vh', backgroundColor: 'var(--color-bg)' }}>
+            <SEO
+                title="Portfolio | Harborline Events Gallery"
+                description="View our selected works and live performance highlights. See why Harborline is the top choice for event entertainment."
+                canonical="/portfolio"
+            />
             <div className="container">
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <h1 className="section-title">Selected Works</h1>
@@ -45,16 +51,16 @@ const Portfolio = () => {
                     {showEmbed ? (
                         <VimeoPlayer />
                     ) : (
-                        <div 
-                            style={{ 
-                                position: 'absolute', 
-                                top: 0, 
-                                left: 0, 
-                                width: '100%', 
-                                height: '100%', 
-                                display: 'flex', 
+                        <div
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                display: 'flex',
                                 flexDirection: 'column',
-                                alignItems: 'center', 
+                                alignItems: 'center',
                                 justifyContent: 'center',
                                 backgroundImage: 'url(/hero.png)',
                                 backgroundSize: 'cover',
@@ -63,12 +69,12 @@ const Portfolio = () => {
                             }}
                             onClick={() => setShowEmbed(true)}
                         >
-                             <div style={{
+                            <div style={{
                                 position: 'absolute',
                                 inset: 0,
                                 backgroundColor: 'rgba(0,0,0,0.5)',
                             }}></div>
-                            
+
                             <div style={{
                                 width: '80px',
                                 height: '80px',
@@ -83,10 +89,10 @@ const Portfolio = () => {
                                 marginBottom: '1rem',
                                 transition: 'transform 0.2s'
                             }}
-                            onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-                            onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                                onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                                onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
                             >
-                                 <div style={{
+                                <div style={{
                                     width: 0,
                                     height: 0,
                                     borderTop: '12px solid transparent',
@@ -103,12 +109,12 @@ const Portfolio = () => {
                 </div>
 
                 {/* Filter Controls */}
-                <div style={{ 
-                    display: 'flex', 
-                    justifyContent: 'center', 
-                    gap: '1rem', 
-                    flexWrap: 'wrap', 
-                    marginBottom: '4rem' 
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    gap: '1rem',
+                    flexWrap: 'wrap',
+                    marginBottom: '4rem'
                 }}>
                     {categories.map(cat => (
                         <button
@@ -139,10 +145,10 @@ const Portfolio = () => {
                 }}>
                     {filteredProjects.map((project) => (
                         <div key={project.id} className="portfolio-item">
-                            <div style={{ 
-                                position: 'relative', 
-                                overflow: 'hidden', 
-                                borderRadius: '4px', 
+                            <div style={{
+                                position: 'relative',
+                                overflow: 'hidden',
+                                borderRadius: '4px',
                                 aspectRatio: '4/3',
                                 backgroundColor: 'var(--color-surface)'
                             }}>
