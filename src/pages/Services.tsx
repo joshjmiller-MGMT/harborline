@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import FadeIn from '../components/FadeIn';
 
 const Services = () => {
     const services = [
@@ -40,31 +41,33 @@ const Services = () => {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
                     {services.map((service, index) => (
-                        <div key={index} className={`services-layout__row ${index % 2 === 0 ? 'normal' : 'reverse'}`}>
-                            {/* Image Side */}
-                            <div className="services-layout__image-col">
-                                <div className="services-layout__border"></div>
-                                <img
-                                    src={service.image}
-                                    alt={service.title}
-                                    className="services-layout__img"
-                                />
-                            </div>
+                        <FadeIn key={index} direction={index % 2 === 0 ? 'left' : 'right'} delay={index * 0.1}>
+                            <div className={`services-layout__row ${index % 2 === 0 ? 'normal' : 'reverse'}`}>
+                                {/* Image Side */}
+                                <div className="services-layout__image-col">
+                                    <div className="services-layout__border"></div>
+                                    <img
+                                        src={service.image}
+                                        alt={service.title}
+                                        className="services-layout__img"
+                                    />
+                                </div>
 
-                            {/* Content Side */}
-                            <div className="services-layout__text-col">
-                                <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1.5rem', color: '#fff', lineHeight: 1.1 }}>{service.title}</h2>
-                                <p style={{ color: '#d4d4d8', lineHeight: '1.8', marginBottom: '2rem', fontSize: '1.1rem' }}>{service.desc}</p>
-                                <ul style={{ marginBottom: '3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                                    {service.features.map((feature, fIndex) => (
-                                        <li key={fIndex} style={{ color: '#a1a1aa', display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '1rem' }}>
-                                            <span style={{ color: '#2563eb', fontSize: '1.5rem', lineHeight: 0 }}>•</span> {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                                <Link to="/contact" className="btn">Inquire Now</Link>
+                                {/* Content Side */}
+                                <div className="services-layout__text-col">
+                                    <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1.5rem', color: '#fff', lineHeight: 1.1 }}>{service.title}</h2>
+                                    <p style={{ color: '#d4d4d8', lineHeight: '1.8', marginBottom: '2rem', fontSize: '1.1rem' }}>{service.desc}</p>
+                                    <ul style={{ marginBottom: '3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                        {service.features.map((feature, fIndex) => (
+                                            <li key={fIndex} style={{ color: '#a1a1aa', display: 'flex', alignItems: 'center', gap: '1rem', fontSize: '1rem' }}>
+                                                <span style={{ color: '#2563eb', fontSize: '1.5rem', lineHeight: 0 }}>•</span> {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <Link to="/contact" className="btn">Inquire Now</Link>
+                                </div>
                             </div>
-                        </div>
+                        </FadeIn>
                     ))}
                 </div>
             </div >
