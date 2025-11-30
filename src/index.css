@@ -514,14 +514,6 @@ button {
     transform: scale(1.05);
 }
 
-.service-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
-}
 
 .service-title {
     font-size: 1.5rem;
