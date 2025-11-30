@@ -18,106 +18,136 @@ const Contact = () => {
     };
 
     return (
-        <div style={{ paddingTop: '120px', paddingBottom: '4rem', minHeight: '100vh', backgroundColor: '#000' }}>
-            <div className="container" style={{ maxWidth: '800px' }}>
-                <h1 className="section-title">Start Your Experience</h1>
-                <p style={{ textAlign: 'center', color: '#a1a1aa', marginBottom: '3rem', fontSize: '1.1rem' }}>
-                    Tell us about your event. We'll craft the perfect entertainment solution for you.
-                </p>
+        <div className="page-enter contact-page">
+            <div className="container">
+                <div className="contact-grid">
+                    {/* Info Side */}
+                    <div>
+                        <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 900, lineHeight: 1, marginBottom: '2rem' }}>Let's Create<br />Magic.</h1>
+                        <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '4rem' }}>
+                            We accept a limited number of commissions each year to ensure every event receives our full attention.
+                        </p>
 
-                <form
-                    name="contact"
-                    method="POST"
-                    data-netlify="true"
-                    style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
-                >
-                    <input type="hidden" name="form-name" value="contact" />
-
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                            <label htmlFor="name" style={{ fontWeight: 600, fontSize: '0.9rem' }}>Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                value={formData.name}
-                                onChange={handleChange}
-                                style={{ padding: '1rem', borderRadius: '4px', border: '1px solid #333', backgroundColor: '#18181b', color: 'white', fontSize: '1rem' }}
-                            />
+                        <div style={{ marginBottom: '3rem' }}>
+                            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '1rem' }}>Contact</h4>
+                            <p style={{ color: 'var(--color-text-muted)', marginBottom: '0.5rem' }}>hello@harborline.com</p>
+                            <p style={{ color: 'var(--color-text-muted)' }}>+1 (555) 987-6543</p>
                         </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                            <label htmlFor="email" style={{ fontWeight: 600, fontSize: '0.9rem' }}>Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                value={formData.email}
-                                onChange={handleChange}
-                                style={{ padding: '1rem', borderRadius: '4px', border: '1px solid #333', backgroundColor: '#18181b', color: 'white', fontSize: '1rem' }}
-                            />
+
+                        <div style={{ marginBottom: '3rem' }}>
+                            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '1rem' }}>Headquarters</h4>
+                            <p style={{ color: 'var(--color-text-muted)', marginBottom: '0.5rem' }}>123 Entertainment Blvd</p>
+                            <p style={{ color: 'var(--color-text-muted)' }}>Los Angeles, CA 90028</p>
+                        </div>
+
+                        <div style={{ padding: '2rem', backgroundColor: 'var(--color-surface)', borderRadius: '4px' }}>
+                            <h4 style={{ color: 'var(--color-primary)', fontSize: '1.1rem', marginBottom: '1rem' }}>What happens next?</h4>
+                            <ol style={{ listStylePosition: 'inside', color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
+                                <li>We review your inquiry within 24 hours.</li>
+                                <li>We schedule a discovery call.</li>
+                                <li>We send a custom proposal.</li>
+                            </ol>
                         </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                            <label htmlFor="eventType" style={{ fontWeight: 600, fontSize: '0.9rem' }}>Event Type</label>
-                            <select
-                                id="eventType"
-                                name="eventType"
-                                value={formData.eventType}
-                                onChange={handleChange}
-                                style={{ padding: '1rem', borderRadius: '4px', border: '1px solid #333', backgroundColor: '#18181b', color: 'white', fontSize: '1rem' }}
-                            >
-                                <option value="corporate">Corporate Event</option>
-                                <option value="wedding">Wedding</option>
-                                <option value="private">Private Party</option>
-                                <option value="festival">Festival/Concert</option>
-                            </select>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                            <label htmlFor="date" style={{ fontWeight: 600, fontSize: '0.9rem' }}>Event Date</label>
-                            <input
-                                type="date"
-                                id="date"
-                                name="date"
-                                value={formData.date}
-                                onChange={handleChange}
-                                style={{ padding: '1rem', borderRadius: '4px', border: '1px solid #333', backgroundColor: '#18181b', color: 'white', fontSize: '1rem' }}
-                            />
-                        </div>
-                    </div>
+                    {/* Form Side */}
+                    <div className="contact-form-wrapper">
+                        <form
+                            name="contact"
+                            method="POST"
+                            data-netlify="true"
+                            style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}
+                        >
+                            <input type="hidden" name="form-name" value="contact" />
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                        <label htmlFor="budget" style={{ fontWeight: 600, fontSize: '0.9rem' }}>Estimated Budget</label>
-                        <input
-                            type="text"
-                            id="budget"
-                            name="budget"
-                            placeholder="$5,000 - $10,000"
-                            value={formData.budget}
-                            onChange={handleChange}
-                            style={{ padding: '1rem', borderRadius: '4px', border: '1px solid #333', backgroundColor: '#18181b', color: 'white', fontSize: '1rem' }}
-                        />
-                    </div>
+                            <div className="form-row">
+                                <div>
+                                    <label htmlFor="name" className="form-label">NAME</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        required
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        className="form-input"
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="email" className="form-label">EMAIL</label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        required
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className="form-input"
+                                    />
+                                </div>
+                            </div>
 
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                        <label htmlFor="message" style={{ fontWeight: 600, fontSize: '0.9rem' }}>Additional Details</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows={5}
-                            value={formData.message}
-                            onChange={handleChange}
-                            style={{ padding: '1rem', borderRadius: '4px', border: '1px solid #333', backgroundColor: '#18181b', color: 'white', fontSize: '1rem', resize: 'vertical' }}
-                        />
-                    </div>
+                            <div className="form-row">
+                                <div>
+                                    <label htmlFor="eventType" className="form-label">EVENT TYPE</label>
+                                    <select
+                                        id="eventType"
+                                        name="eventType"
+                                        value={formData.eventType}
+                                        onChange={handleChange}
+                                        className="form-input"
+                                    >
+                                        <option value="corporate">Corporate Event</option>
+                                        <option value="wedding">Wedding</option>
+                                        <option value="private">Private Party</option>
+                                        <option value="festival">Festival/Concert</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label htmlFor="date" className="form-label">DATE</label>
+                                    <input
+                                        type="date"
+                                        id="date"
+                                        name="date"
+                                        value={formData.date}
+                                        onChange={handleChange}
+                                        className="form-input"
+                                    />
+                                </div>
+                            </div>
 
-                    <button type="submit" className="btn" style={{ marginTop: '1rem', width: '100%', fontSize: '1.1rem' }}>
-                        Submit Request
-                    </button>
-                </form>
+                            <div>
+                                <label htmlFor="budget" className="form-label">BUDGET RANGE</label>
+                                <input
+                                    type="text"
+                                    id="budget"
+                                    name="budget"
+                                    placeholder="e.g. $10k - $20k"
+                                    value={formData.budget}
+                                    onChange={handleChange}
+                                    className="form-input"
+                                />
+                            </div>
+
+                            <div>
+                                <label htmlFor="message" className="form-label">TELL US MORE</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows={4}
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    className="form-input"
+                                    style={{ resize: 'vertical' }}
+                                />
+                            </div>
+
+                            <button type="submit" className="btn" style={{ marginTop: '1rem', width: '100%' }}>
+                                Send Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     );
