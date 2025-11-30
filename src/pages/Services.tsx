@@ -40,33 +40,19 @@ const Services = () => {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
                     {services.map((service, index) => (
-                        <div key={index} className={`sp-row ${index % 2 === 0 ? 'normal' : 'reverse'}`}>
+                        <div key={index} className={`services-layout__row ${index % 2 === 0 ? 'normal' : 'reverse'}`}>
                             {/* Image Side */}
-                            <div className="sp-img-container">
-                                <div className="sp-border" style={{
-                                    left: index % 2 === 0 ? '15px' : '-15px',
-                                    right: index % 2 === 0 ? 'auto' : 'auto'
-                                }}></div>
+                            <div className="services-layout__image-col">
+                                <div className="services-layout__border"></div>
                                 <img
                                     src={service.image}
                                     alt={service.title}
-                                    style={{
-                                        position: 'relative',
-                                        zIndex: 1,
-                                        borderRadius: '2px',
-                                        width: '100%',
-                                        height: '100%',
-                                        objectFit: 'cover',
-                                        filter: 'grayscale(100%)',
-                                        transition: 'filter 0.3s ease'
-                                    }}
-                                    onMouseEnter={(e) => e.currentTarget.style.filter = 'grayscale(0%)'}
-                                    onMouseLeave={(e) => e.currentTarget.style.filter = 'grayscale(100%)'}
+                                    className="services-layout__img"
                                 />
                             </div>
 
                             {/* Content Side */}
-                            <div className="sp-text-content">
+                            <div className="services-layout__text-col">
                                 <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1.5rem', color: '#fff', lineHeight: 1.1 }}>{service.title}</h2>
                                 <p style={{ color: '#d4d4d8', lineHeight: '1.8', marginBottom: '2rem', fontSize: '1.1rem' }}>{service.desc}</p>
                                 <ul style={{ marginBottom: '3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>

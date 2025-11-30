@@ -253,25 +253,42 @@ button {
     /* .service-row classes removed in favor of sp- classes below */
 }
 
-/* === Services Page (Dedicated Namespace) === */
-.sp-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+/* === Services Page (Flexbox Redesign) === */
+.services-layout__row {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 6rem;
     align-items: center;
-    margin-bottom: 4rem;
-    /* Spacing between rows */
 }
 
-.sp-img-container {
+.services-layout__image-col {
     position: relative;
     width: 100%;
     height: 300px;
     /* Mobile height */
-    margin-bottom: 2rem;
 }
 
-.sp-border {
+.services-layout__text-col {
+    width: 100%;
+}
+
+.services-layout__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.services-layout__img:hover {
+    filter: grayscale(0%);
+}
+
+.services-layout__border {
     position: absolute;
     top: 15px;
     left: 15px;
@@ -282,40 +299,36 @@ button {
     transition: all 0.3s ease;
 }
 
-.sp-row:hover .sp-border {
+.services-layout__row:hover .services-layout__border {
     top: 25px;
     left: 25px;
     border-color: var(--color-primary);
 }
 
-.sp-text-content {
-    position: relative;
-    padding: 0;
-}
-
 @media (min-width: 768px) {
-    .sp-row.normal {
-        grid-template-columns: 1.2fr 0.8fr;
+    .services-layout__row {
+        flex-direction: row;
         gap: 6rem;
+        align-items: center;
     }
 
-    .sp-row.reverse {
-        grid-template-columns: 0.8fr 1.2fr;
-        gap: 6rem;
+    .services-layout__row.reverse {
+        flex-direction: row-reverse;
     }
 
-    .sp-row.reverse .sp-img-container {
-        order: 2;
-    }
-
-    .sp-row.reverse .sp-text-content {
-        order: 1;
-    }
-
-    .sp-img-container {
+    .services-layout__image-col {
+        flex: 1.2;
         height: 500px;
-        margin-bottom: 0;
+        /* Desktop height */
     }
+
+    .services-layout__text-col {
+        flex: 0.8;
+    }
+
+    /* Adjust border position for reverse layout if needed, 
+       but standard left/top offset usually looks fine on both sides 
+       or can be flipped. Keeping it simple for now. */
 }
 
 /* Animations */
