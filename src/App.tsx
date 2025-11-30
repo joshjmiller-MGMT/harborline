@@ -6,12 +6,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
-<<<<<<< HEAD
 import LocationPage from './pages/LocationPage';
-=======
-import Location from './pages/Location';
-import NotFound from './pages/NotFound';
->>>>>>> 44e1892bb7d36c6ffaa2909cf6bc86a31d5440ba
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -26,8 +21,6 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
-<<<<<<< HEAD
-
           {/* SEO Location Pages */}
           <Route path="/locations/washington-dc" element={<LocationPage
             city="Washington D.C."
@@ -71,10 +64,6 @@ function App() {
             intro="Bringing dynamic energy to the cultural hub of Silver Spring. Perfect for festivals, community events, and modern weddings."
             venues={["The Fillmore", "Civic Building", "AFI Silver"]}
           />} />
-=======
-          <Route path="/locations/:city" element={<Location />} />
-          <Route path="*" element={<NotFound />} />
->>>>>>> 44e1892bb7d36c6ffaa2909cf6bc86a31d5440ba
         </Routes>
         <Footer />
       </div>

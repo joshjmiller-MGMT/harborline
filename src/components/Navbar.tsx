@@ -22,35 +22,6 @@ const Navbar = () => {
     }, [location]);
 
     const isHome = location.pathname === '/';
-<<<<<<< HEAD
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleMenu = () => setIsOpen(!isOpen);
-    const closeMenu = () => setIsOpen(false);
-
-    return (
-        <nav style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            zIndex: 1000,
-            padding: '1.5rem 0',
-            transition: 'background-color 0.3s ease',
-            backgroundColor: scrolled || !isHome || isOpen ? 'rgba(0, 0, 0, 0.9)' : 'transparent',
-            backdropFilter: scrolled || !isHome || isOpen ? 'blur(10px)' : 'none',
-            borderBottom: !isHome && !isOpen ? '1px solid #333' : 'none'
-        }}>
-            <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Link to="/" onClick={closeMenu} style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '2px', color: 'white', zIndex: 1002 }}>
-                    HARBORLINE
-                </Link>
-
-                {/* Desktop Nav */}
-                <div className="nav-links">
-                    <ul style={{ display: 'flex', gap: '2rem', margin: 0, padding: 0 }}>
-                        {['About', 'Services', 'Portfolio'].map((item) => (
-=======
     const navbarClass = `navbar ${scrolled || !isHome || isOpen ? 'scrolled' : ''}`;
 
     const navItems = ['About', 'Services', 'Portfolio'];
@@ -58,13 +29,13 @@ const Navbar = () => {
     return (
         <nav className={navbarClass}>
             <div className="container nav-container">
-                <Link to="/" className="nav-logo">
+                <Link to="/" className="nav-logo" onClick={() => setIsOpen(false)}>
                     HARBORLINE
                 </Link>
 
                 {/* Mobile Toggle */}
-                <button 
-                    className="mobile-toggle" 
+                <button
+                    className="mobile-toggle"
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label="Toggle menu"
                 >
@@ -75,7 +46,6 @@ const Navbar = () => {
                 <div className="nav-desktop">
                     <ul className="nav-links">
                         {navItems.map((item) => (
->>>>>>> 44e1892bb7d36c6ffaa2909cf6bc86a31d5440ba
                             <li key={item}>
                                 <Link
                                     to={`/${item.toLowerCase()}`}
@@ -91,44 +61,28 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-<<<<<<< HEAD
-                {/* Mobile Toggle */}
-                <button className="mobile-menu-btn" onClick={toggleMenu}>
-                    {isOpen ? '✕' : '☰'}
-                </button>
-
-                {/* Mobile Menu Overlay */}
-                <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
-                    {['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) => (
-                        <Link
-                            key={item}
-                            to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                            onClick={closeMenu}
-                            style={{
-                                fontSize: '2rem',
-                                fontWeight: 700,
-                                color: 'white'
-                            }}
-                        >
-                            {item}
-                        </Link>
-                    ))}
-=======
                 {/* Mobile Navigation Overlay */}
                 <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
+                    <Link
+                        to="/"
+                        className="mobile-nav-link"
+                        onClick={() => setIsOpen(false)}
+                    >
+                        HOME
+                    </Link>
                     {navItems.map((item) => (
                         <Link
                             key={item}
                             to={`/${item.toLowerCase()}`}
                             className="mobile-nav-link"
+                            onClick={() => setIsOpen(false)}
                         >
                             {item.toUpperCase()}
                         </Link>
                     ))}
-                    <Link to="/contact" className="btn" style={{ marginTop: '1rem' }}>
+                    <Link to="/contact" className="btn" style={{ marginTop: '1rem' }} onClick={() => setIsOpen(false)}>
                         Book Now
                     </Link>
->>>>>>> 44e1892bb7d36c6ffaa2909cf6bc86a31d5440ba
                 </div>
             </div>
         </nav>
