@@ -60,7 +60,7 @@ const Home = () => {
                 <div className="container" style={{ textAlign: 'center' }}>
                     <h3 style={{ fontSize: '1.5rem', color: '#fff', marginBottom: '2rem' }}>Serving Major Destinations</h3>
                     <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem' }}>
-                        {locations.map((loc, i) => (
+                        {locations.map((loc) => (
                             <Link
                                 key={loc.slug}
                                 to={`/locations/${loc.slug}`}
