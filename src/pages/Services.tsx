@@ -66,7 +66,7 @@ const Services = () => {
                             </div>
 
                             {/* Content Side */}
-                            <div className="service-content" style={{ position: 'relative', background: 'transparent', padding: 0 }}>
+                            <div className="service-text-content">
                                 <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1.5rem', color: '#fff', lineHeight: 1.1 }}>{service.title}</h2>
                                 <p style={{ color: '#d4d4d8', lineHeight: '1.8', marginBottom: '2rem', fontSize: '1.1rem' }}>{service.desc}</p>
                                 <ul style={{ marginBottom: '3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
