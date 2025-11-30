@@ -15,6 +15,10 @@ const Navbar = () => {
     }, []);
 
     const isHome = location.pathname === '/';
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => setIsOpen(!isOpen);
+    const closeMenu = () => setIsOpen(false);
 
     return (
         <nav style={{
@@ -25,15 +29,17 @@ const Navbar = () => {
             zIndex: 1000,
             padding: '1.5rem 0',
             transition: 'background-color 0.3s ease',
-            backgroundColor: scrolled || !isHome ? 'rgba(0, 0, 0, 0.9)' : 'transparent',
-            backdropFilter: scrolled || !isHome ? 'blur(10px)' : 'none',
-            borderBottom: !isHome ? '1px solid #333' : 'none'
+            backgroundColor: scrolled || !isHome || isOpen ? 'rgba(0, 0, 0, 0.9)' : 'transparent',
+            backdropFilter: scrolled || !isHome || isOpen ? 'blur(10px)' : 'none',
+            borderBottom: !isHome && !isOpen ? '1px solid #333' : 'none'
         }}>
             <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Link to="/" style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '2px', color: 'white' }}>
+                <Link to="/" onClick={closeMenu} style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '2px', color: 'white', zIndex: 1002 }}>
                     HARBORLINE
                 </Link>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+
+                {/* Desktop Nav */}
+                <div className="nav-links">
                     <ul style={{ display: 'flex', gap: '2rem', margin: 0, padding: 0 }}>
                         {['About', 'Services', 'Portfolio'].map((item) => (
                             <li key={item}>
@@ -54,6 +60,29 @@ const Navbar = () => {
                     <Link to="/contact" className="btn" style={{ padding: '0.5rem 1.5rem', fontSize: '0.9rem' }}>
                         Book Now
                     </Link>
+                </div>
+
+                {/* Mobile Toggle */}
+                <button className="mobile-menu-btn" onClick={toggleMenu}>
+                    {isOpen ? '✕' : '☰'}
+                </button>
+
+                {/* Mobile Menu Overlay */}
+                <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
+                    {['Home', 'About', 'Services', 'Portfolio', 'Contact'].map((item) => (
+                        <Link
+                            key={item}
+                            to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                            onClick={closeMenu}
+                            style={{
+                                fontSize: '2rem',
+                                fontWeight: 700,
+                                color: 'white'
+                            }}
+                        >
+                            {item}
+                        </Link>
+                    ))}
                 </div>
             </div>
         </nav>
