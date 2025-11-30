@@ -250,25 +250,69 @@ button {
     }
 
     /* Asymmetric alternation */
-    .service-row.normal {
+    /* .service-row classes removed in favor of sp- classes below */
+}
+
+/* === Services Page (Dedicated Namespace) === */
+.sp-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 4rem;
+    /* Spacing between rows */
+}
+
+.sp-img-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    /* Mobile height */
+    margin-bottom: 2rem;
+}
+
+.sp-border {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #333;
+    z-index: 0;
+    transition: all 0.3s ease;
+}
+
+.sp-row:hover .sp-border {
+    top: 25px;
+    left: 25px;
+    border-color: var(--color-primary);
+}
+
+.sp-text-content {
+    position: relative;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .sp-row.normal {
         grid-template-columns: 1.2fr 0.8fr;
-        gap: 4rem;
+        gap: 6rem;
     }
 
-    .service-row.reverse {
+    .sp-row.reverse {
         grid-template-columns: 0.8fr 1.2fr;
-        gap: 4rem;
+        gap: 6rem;
     }
 
-    .service-row.reverse .service-img-container {
+    .sp-row.reverse .sp-img-container {
         order: 2;
     }
 
-    .service-row.reverse .service-content {
+    .sp-row.reverse .sp-text-content {
         order: 1;
     }
 
-    .service-img-container {
+    .sp-img-container {
         height: 500px;
         margin-bottom: 0;
     }
@@ -514,6 +558,14 @@ button {
     transform: scale(1.05);
 }
 
+.service-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+}
 
 .service-title {
     font-size: 1.5rem;

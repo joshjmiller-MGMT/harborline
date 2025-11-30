@@ -40,10 +40,10 @@ const Services = () => {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
                     {services.map((service, index) => (
-                        <div key={index} className={`service-row ${index % 2 === 0 ? 'normal' : 'reverse'}`}>
+                        <div key={index} className={`sp-row ${index % 2 === 0 ? 'normal' : 'reverse'}`}>
                             {/* Image Side */}
-                            <div className="service-img-container">
-                                <div className="service-border" style={{
+                            <div className="sp-img-container">
+                                <div className="sp-border" style={{
                                     left: index % 2 === 0 ? '15px' : '-15px',
                                     right: index % 2 === 0 ? 'auto' : 'auto'
                                 }}></div>
@@ -66,7 +66,7 @@ const Services = () => {
                             </div>
 
                             {/* Content Side */}
-                            <div className="service-text-content">
+                            <div className="sp-text-content">
                                 <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1.5rem', color: '#fff', lineHeight: 1.1 }}>{service.title}</h2>
                                 <p style={{ color: '#d4d4d8', lineHeight: '1.8', marginBottom: '2rem', fontSize: '1.1rem' }}>{service.desc}</p>
                                 <ul style={{ marginBottom: '3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
