@@ -40,19 +40,12 @@ const Services = () => {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
                     {services.map((service, index) => (
-                        <div key={index} className={`service - row ${index % 2 === 0 ? 'normal' : 'reverse'} `}>
+                        <div key={index} className={`service-row ${index % 2 === 0 ? 'normal' : 'reverse'}`}>
                             {/* Image Side */}
-                            <div className="service-img" style={{
-                                position: 'relative'
-                            }}>
-                                <div style={{
-                                    position: 'absolute',
-                                    top: '20px',
-                                    [index % 2 === 0 ? 'right' : 'left']: '20px',
-                                    width: '100%',
-                                    height: '100%',
-                                    border: '1px solid #333',
-                                    zIndex: 0
+                            <div className="service-img-container">
+                                <div className="service-border" style={{
+                                    left: index % 2 === 0 ? '15px' : '-15px',
+                                    right: index % 2 === 0 ? 'auto' : 'auto'
                                 }}></div>
                                 <img
                                     src={service.image}
@@ -62,16 +55,19 @@ const Services = () => {
                                         zIndex: 1,
                                         borderRadius: '2px',
                                         width: '100%',
-                                        height: '500px',
+                                        height: '100%',
                                         objectFit: 'cover',
-                                        filter: 'grayscale(100%)' // Stylistic choice
+                                        filter: 'grayscale(100%)',
+                                        transition: 'filter 0.3s ease'
                                     }}
+                                    onMouseEnter={(e) => e.currentTarget.style.filter = 'grayscale(0%)'}
+                                    onMouseLeave={(e) => e.currentTarget.style.filter = 'grayscale(100%)'}
                                 />
                             </div>
 
                             {/* Content Side */}
-                            <div className="service-content">
-                                <h2 style={{ fontSize: '3rem', marginBottom: '2rem', color: '#fff', lineHeight: 1 }}>{service.title}</h2>
+                            <div className="service-content" style={{ position: 'relative', background: 'transparent', padding: 0 }}>
+                                <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '1.5rem', color: '#fff', lineHeight: 1.1 }}>{service.title}</h2>
                                 <p style={{ color: '#d4d4d8', lineHeight: '1.8', marginBottom: '2rem', fontSize: '1.1rem' }}>{service.desc}</p>
                                 <ul style={{ marginBottom: '3rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                                     {service.features.map((feature, fIndex) => (
@@ -85,8 +81,8 @@ const Services = () => {
                         </div>
                     ))}
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
