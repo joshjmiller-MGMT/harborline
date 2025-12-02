@@ -15,7 +15,7 @@ const SEO = ({
     description,
     canonical,
     type = 'website',
-    name = 'Harborline',
+    name = 'Baltimore Music & Entertainment',
     image = '/hero.png',
     schema
 }: SEOProps) => {

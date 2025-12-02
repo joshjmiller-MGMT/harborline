@@ -9,8 +9,8 @@ const Home = () => {
     return (
         <div className="page-enter">
             <SEO
-                title="Harborline | Premier Event Entertainment in DC & MD"
-                description="Harborline provides bespoke live music and entertainment for corporate events, weddings, and private parties in Washington DC, Maryland, and Virginia."
+                title="Baltimore Music & Entertainment | Premier Event Entertainment in DC & MD"
+                description="Baltimore Music & Entertainment provides bespoke live music and entertainment for corporate events, weddings, and private parties in Washington DC, Maryland, and Virginia."
                 canonical="/"
             />
             <Hero />
@@ -40,7 +40,7 @@ const Home = () => {
                     </FadeIn>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
                         {[
-                            { quote: "Harborline transformed our gala. The band was electric, and the production was flawless.", author: "Sarah M., Event Planner" },
+                            { quote: "BME transformed our gala. The band was electric, and the production was flawless.", author: "Sarah M., Event Planner" },
                             { quote: "I've never seen a dance floor that packed for that long. Truly world-class talent.", author: "James R., Corporate Client" },
                             { quote: "From the first email to the last song, working with them was a dream.", author: "Emily & David, Newlyweds" }
                         ].map((t, i) => (

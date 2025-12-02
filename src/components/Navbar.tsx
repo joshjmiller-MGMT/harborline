@@ -30,7 +30,7 @@ const Navbar = () => {
         <nav className={navbarClass}>
             <div className="container nav-container">
                 <Link to="/" className="nav-logo" onClick={() => setIsOpen(false)}>
-                    HARBORLINE
+                    BALTIMORE MUSIC & ENTERTAINMENT
                 </Link>
 
                 {/* Mobile Toggle */}

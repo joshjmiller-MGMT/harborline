@@ -5,7 +5,7 @@ const About = () => {
     return (
         <div className="page-enter" style={{ paddingTop: '120px', paddingBottom: '4rem', minHeight: '100vh', backgroundColor: 'var(--color-bg)' }}>
             <SEO
-                title="About Us | Harborline Entertainment"
+                title="About Us | Baltimore Music & Entertainment"
                 description="We are a collective of industry-leading musicians and event professionals dedicated to elevating your event experience."
                 canonical="/about"
             />
@@ -24,7 +24,7 @@ const About = () => {
                         <div>
                             <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: '#fff', fontWeight: 300 }}>Redefining <span style={{ fontWeight: 700, color: '#2563eb' }}>Live Entertainment</span></h2>
                             <p style={{ color: '#d4d4d8', lineHeight: '1.8', marginBottom: '1.5rem', fontSize: '1.1rem' }}>
-                                Harborline was founded on a simple premise: that live entertainment should be nothing short of spectacular. We aren't just a booking agency; we are curators of atmosphere, architects of energy, and partners in creating memories that last a lifetime.
+                                Baltimore Music & Entertainment was founded on a simple premise: that live entertainment should be nothing short of spectacular. We aren't just a booking agency; we are curators of atmosphere, architects of energy, and partners in creating memories that last a lifetime.
                             </p>
                             <p style={{ color: '#d4d4d8', lineHeight: '1.8', fontSize: '1.1rem' }}>
                                 With a roster of the world's most talented musicians, performers, and production experts, we bridge the gap between artistic excellence and seamless event execution. Whether it's an intimate wedding or a massive corporate gala, we bring the same level of passion and precision to every stage.
@@ -60,7 +60,7 @@ const About = () => {
 
                 <div style={{ marginBottom: '8rem' }}>
                     <FadeIn direction="up">
-                        <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '4rem' }}>Why Choose Harborline?</h2>
+                        <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '4rem' }}>Why Choose BME?</h2>
                     </FadeIn>
                     <div className="grid-3">                        {[
                         { title: 'Curated Talent', desc: 'Every artist on our roster is vetted for exceptional skill, style, and professionalism. We don\'t settle for "good enough".' },

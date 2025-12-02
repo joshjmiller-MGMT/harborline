@@ -3,13 +3,15 @@
     --line-height: 1.5;
     --font-weight: 400;
 
-    --color-bg: #000000;
+    --color-bg: #050505;
     --color-text: #ffffff;
     --color-text-muted: #a1a1aa;
-    --color-primary: #2563eb;
-    /* Electric Blue */
-    --color-primary-hover: #1d4ed8;
-    --color-surface: #18181b;
+    --color-primary: #D4AF37;
+    /* Gold */
+    --color-primary-hover: #B5952F;
+    --color-secondary: #2563eb;
+    /* Electric Blue Accent */
+    --color-surface: #0a0a0a;
 
     --container-width: 1200px;
     --header-height: 80px;
@@ -151,11 +153,12 @@ button {
 .section-title {
     font-size: 2rem;
     /* Smaller for mobile */
-    font-weight: 700;
-    margin-bottom: 2rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    color: #fff;
 }
 
 /* Responsive Grids */
@@ -525,12 +528,13 @@ button {
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
+    line-height: 1;
+    margin-bottom: 2rem;
     text-transform: uppercase;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
