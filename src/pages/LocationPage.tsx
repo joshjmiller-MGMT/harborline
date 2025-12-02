@@ -42,15 +42,15 @@ const LocationPage = ({ data }: LocationPageProps) => {
             />
 
             {/* Hero Section */}
-            <section className="hero-section" style={{ height: '60vh' }}>
+            <section className="hero-section" style={{ height: '50vh', minHeight: '400px' }}>
                 <div className="hero-bg" style={{ backgroundImage: `url(${image})` }}></div>
-                <div className="hero-overlay"></div>
+                <div className="hero-overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), #050505)' }}></div>
                 <div className="container hero-content">
                     <FadeIn direction="up">
-                        <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)' }}>
+                        <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginBottom: '0.5rem' }}>
                             {city}
                         </h1>
-                        <p className="hero-subtitle" style={{ fontSize: '1.5rem', color: '#D4AF37' }}>
+                        <p className="hero-subtitle" style={{ fontSize: '1.25rem', color: '#D4AF37', fontWeight: 600 }}>
                             {data.localVibe}
                         </p>
                     </FadeIn>
@@ -58,25 +58,25 @@ const LocationPage = ({ data }: LocationPageProps) => {
             </section>
 
             {/* Main Content */}
-            <section style={{ padding: '6rem 0' }}>
+            <section style={{ padding: '3rem 0' }}>
                 <div className="container">
                     <div style={{ maxWidth: '900px', margin: '0 auto' }}>
 
                         {/* Intro & Venues */}
                         <FadeIn direction="up">
-                            <h2 className="section-title">Why Choose BME in {city}?</h2>
-                            <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: '#d4d4d8', marginBottom: '4rem', textAlign: 'center' }}>
+                            <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>Why Choose BME in {city}?</h2>
+                            <p style={{ fontSize: '1.15rem', lineHeight: '1.6', color: '#d4d4d8', marginBottom: '3rem', textAlign: 'center' }}>
                                 {intro}
                             </p>
                         </FadeIn>
 
-                        <div className="grid-2" style={{ marginBottom: '6rem', alignItems: 'start' }}>
+                        <div className="grid-2" style={{ marginBottom: '4rem', alignItems: 'start', gap: '2rem' }}>
                             <FadeIn direction="left">
-                                <div style={{ backgroundColor: '#0a0a0a', padding: '2rem', borderRadius: '4px', border: '1px solid #27272a' }}>
-                                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: '#D4AF37' }}>Top Venues</h3>
-                                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                <div style={{ backgroundColor: '#0a0a0a', padding: '1.5rem', borderRadius: '4px', border: '1px solid #27272a' }}>
+                                    <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: '#D4AF37' }}>Top Venues</h3>
+                                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                                         {venues.map((venue, i) => (
-                                            <li key={i} style={{ color: '#a1a1aa', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                            <li key={i} style={{ color: '#a1a1aa', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.95rem' }}>
                                                 <span style={{ color: '#2563eb' }}>•</span> {venue}
                                             </li>
                                         ))}
@@ -86,18 +86,18 @@ const LocationPage = ({ data }: LocationPageProps) => {
 
                             <FadeIn direction="right" delay={0.2}>
                                 <div>
-                                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: '#fff' }}>Local Expertise</h3>
-                                    <p style={{ color: '#a1a1aa', lineHeight: '1.7', marginBottom: '2rem' }}>
+                                    <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#fff' }}>Local Expertise</h3>
+                                    <p style={{ color: '#a1a1aa', lineHeight: '1.6', marginBottom: '1.5rem' }}>
                                         {specific_services}
                                     </p>
-                                    <Link to="/contact" className="btn">Check Availability in {city}</Link>
+                                    <Link to="/contact" className="btn" style={{ width: '100%', textAlign: 'center' }}>Check Availability in {city}</Link>
                                 </div>
                             </FadeIn>
                         </div>
 
                         {/* Gallery Section */}
                         {data.gallery && (
-                            <div style={{ marginBottom: '6rem' }}>
+                            <div style={{ marginBottom: '4rem' }}>
                                 <FadeIn direction="up">
                                     <h2 className="section-title" style={{ fontSize: '2rem' }}>Event Inspiration</h2>
                                 </FadeIn>
