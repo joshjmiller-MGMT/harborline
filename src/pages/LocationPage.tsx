@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import FadeIn from '../components/FadeIn';
-import { LocationData } from '../data/locations';
+import type { LocationData } from '../data/locations';
 
 interface LocationPageProps {
     data: LocationData;
