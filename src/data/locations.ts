@@ -16,6 +16,7 @@ export interface LocationData {
     specific_services: string;
     faq: FAQ[];
     nearby_cities: string[];
+    gallery?: string[];
 }
 
 export const locations: LocationData[] = [
@@ -34,7 +35,12 @@ export const locations: LocationData[] = [
             { question: "Do you perform at government venues?", answer: "Yes, our team is experienced with the security and logistical protocols required for events at federal buildings and museums." },
             { question: "Can you provide sound for large galas?", answer: "Absolutely. We offer full-scale AV production, ensuring crystal-clear sound for speeches and concert-quality audio for the band." }
         ],
-        nearby_cities: ['Bethesda', 'Alexandria', 'Silver Spring']
+        nearby_cities: ['Bethesda', 'Alexandria', 'Silver Spring'],
+        gallery: [
+            '/images/gallery/dc_lincoln.png',
+            '/images/gallery/dc_anthem.png',
+            '/images/gallery/dc_union_station.png'
+        ]
     },
     {
         slug: 'baltimore',
@@ -51,7 +57,12 @@ export const locations: LocationData[] = [
             { question: "Do you travel to Baltimore County?", answer: "Yes, we regularly perform in Towson, Hunt Valley, and throughout Baltimore County." },
             { question: "What styles of music do you offer?", answer: "Everything from Motown and Soul to Top 40 and Rock. We customize the setlist to your vibe." }
         ],
-        nearby_cities: ['Annapolis', 'Washington D.C.', 'Silver Spring']
+        nearby_cities: ['Annapolis', 'Washington D.C.', 'Silver Spring'],
+        gallery: [
+            '/images/gallery/baltimore_harbor.png',
+            '/images/gallery/baltimore_pendry.png',
+            '/images/gallery/baltimore_industrial.png'
+        ]
     },
     {
         slug: 'annapolis',

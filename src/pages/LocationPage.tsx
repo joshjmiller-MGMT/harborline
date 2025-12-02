@@ -95,6 +95,35 @@ const LocationPage = ({ data }: LocationPageProps) => {
                             </FadeIn>
                         </div>
 
+                        {/* Gallery Section */}
+                        {data.gallery && (
+                            <div style={{ marginBottom: '6rem' }}>
+                                <FadeIn direction="up">
+                                    <h2 className="section-title" style={{ fontSize: '2rem' }}>Event Inspiration</h2>
+                                </FadeIn>
+                                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
+                                    {data.gallery.map((img, i) => (
+                                        <FadeIn key={i} delay={i * 0.1} direction="up">
+                                            <div style={{ height: '300px', overflow: 'hidden', borderRadius: '4px' }}>
+                                                <img
+                                                    src={img}
+                                                    alt={`${city} event inspiration ${i + 1}`}
+                                                    style={{
+                                                        width: '100%',
+                                                        height: '100%',
+                                                        objectFit: 'cover',
+                                                        transition: 'transform 0.5s ease'
+                                                    }}
+                                                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+                                                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                                                />
+                                            </div>
+                                        </FadeIn>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
                         {/* FAQs */}
                         <div style={{ marginBottom: '6rem' }}>
                             <FadeIn direction="up">
