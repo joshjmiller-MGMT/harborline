@@ -52,21 +52,6 @@ const Contact = () => {
         }
     };
 
-    const variants = {
-        enter: (direction: number) => ({
-            x: direction > 0 ? 50 : -50,
-            opacity: 0
-        }),
-        center: {
-            x: 0,
-            opacity: 1
-        },
-        exit: (direction: number) => ({
-            x: direction < 0 ? 50 : -50,
-            opacity: 0
-        })
-    };
-
     return (
         <div className="contact-page page-enter">
             <SEO
