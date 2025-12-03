@@ -8,10 +8,8 @@ import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import LocationPage from './pages/LocationPage';
 import ScrollToTop from './components/ScrollToTop';
-import Cursor from './components/Cursor';
 import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
-import PageLoader from './components/PageLoader';
 import { locations } from './data/locations';
 import { servicesData } from './data/services';
 import ServicePage from './pages/ServicePage';
@@ -19,12 +17,10 @@ import ServicePage from './pages/ServicePage';
 function App() {
   return (
     <Router>
-      <PageLoader />
       <ScrollToTop />
       <div className="app">
         <ScrollProgress />
         <BackToTop />
-        <Cursor />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
