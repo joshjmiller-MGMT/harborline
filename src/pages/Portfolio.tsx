@@ -1,5 +1,6 @@
 import { useState, memo } from 'react';
 import SEO from '../components/SEO';
+import FadeIn from '../components/FadeIn';
 
 const VimeoPlayer = memo(() => (
     <iframe
