@@ -25,7 +25,7 @@ export const locations: LocationData[] = [
         name: 'Washington D.C.',
         title: 'Washington D.C. Event Entertainment | BME',
         description: 'Premier live bands and entertainment for Washington D.C. galas, weddings, and corporate events. Serving The Wharf, Georgetown, and Capitol Hill.',
-        heroImage: '/location_dc_capitol_event.png',
+        heroImage: '/location_dc_capitol_event_1764514897052.png',
         content: 'Washington D.C. events demand a level of sophistication and energy that matches the capital itself. From high-stakes political galas to elegant weddings at historic monuments, Baltimore Music & Entertainment provides the soundtrack for the city\'s most important moments. We understand the unique logistics of D.C. venues and the high expectations of its clientele.',
         localVibe: 'Sophisticated, powerful, and historic.',
         popularEventTypes: ['Black Tie Galas', 'Museum Weddings', 'Political Fundraisers', 'Corporate Summits'],
@@ -37,9 +37,9 @@ export const locations: LocationData[] = [
         ],
         nearby_cities: ['Bethesda', 'Alexandria', 'Silver Spring'],
         gallery: [
-            '/images/gallery/dc_lincoln.png',
-            '/images/gallery/dc_anthem.png',
-            '/images/gallery/dc_union_station.png'
+            '/images/gallery/dc_lincoln_wedding_1764701180933.png',
+            '/images/gallery/dc_anthem_concert_1764701195393.png',
+            '/images/gallery/dc_union_station_gala_1764701210684.png'
         ]
     },
     {
@@ -47,7 +47,7 @@ export const locations: LocationData[] = [
         name: 'Baltimore',
         title: 'Baltimore Wedding Bands & DJs | BME',
         description: 'Top-rated live music for Baltimore weddings and events. Serving the Inner Harbor, Fells Point, and Mt. Vernon.',
-        heroImage: '/location_baltimore_waterfront.png',
+        heroImage: '/location_baltimore_waterfront_1764514910499.png',
         content: 'Charm City deserves charming entertainment. Baltimore Music & Entertainment is the city\'s premier resource for live music, bringing the energy of the waterfront to your private event. Whether it\'s a warehouse wedding in Clipper Mill or a corporate bash at the Inner Harbor, we bring the local flavor and world-class talent.',
         localVibe: 'Artistic, spirited, and authentic.',
         popularEventTypes: ['Waterfront Weddings', 'Industrial Chic Events', 'Corporate Conventions', 'Private Parties'],
@@ -61,7 +61,7 @@ export const locations: LocationData[] = [
         gallery: [
             '/images/gallery/baltimore_harbor.png',
             '/images/gallery/baltimore_pendry.png',
-            '/images/gallery/baltimore_industrial.png'
+            '/images/gallery/baltimore_industrial_band_1764701251032.png'
         ]
     },
     {
@@ -69,7 +69,7 @@ export const locations: LocationData[] = [
         name: 'Annapolis',
         title: 'Annapolis Wedding Entertainment | BME',
         description: 'Nautical elegance meets high-energy entertainment. The best wedding bands for Annapolis and the Eastern Shore.',
-        heroImage: '/location_annapolis_nautical_wedding.png',
+        heroImage: '/location_annapolis_nautical_wedding_1764514925023.png',
         content: 'There is nothing quite like an event on the Chesapeake Bay. We specialize in the nautical elegance that defines Annapolis, providing the perfect musical backdrop for yacht club weddings, waterfront ceremonies, and downtown soirees.',
         localVibe: 'Nautical, preppy, and relaxed luxury.',
         popularEventTypes: ['Yacht Club Weddings', 'Naval Academy Events', 'Waterfront Galas', 'Tent Weddings'],
@@ -91,7 +91,7 @@ export const locations: LocationData[] = [
         name: 'Bethesda',
         title: 'Bethesda & Montgomery County Event Music | BME',
         description: 'Sophisticated entertainment for Bethesda, Potomac, and Chevy Chase private events and weddings.',
-        heroImage: '/location_bethesda_private_party.png',
+        heroImage: '/location_bethesda_private_party_1764514938856.png',
         content: 'For the exclusive private events of Montgomery County, BME delivers understated elegance and high-energy fun. We are a preferred vendor for many of the area\'s top country clubs and hotels, known for our professionalism and exceptional talent.',
         localVibe: 'Upscale, polished, and exclusive.',
         popularEventTypes: ['Country Club Weddings', 'Mitzvahs', 'Private Estate Parties', 'Corporate Holiday Parties'],
@@ -103,7 +103,7 @@ export const locations: LocationData[] = [
         ],
         nearby_cities: ['Washington D.C.', 'Silver Spring', 'Alexandria'],
         gallery: [
-            '/images/gallery/bethesda_country_club.png'
+            '/images/gallery/bethesda_country_club_1764731508165.png'
         ]
     },
     {
@@ -111,7 +111,7 @@ export const locations: LocationData[] = [
         name: 'Alexandria',
         title: 'Old Town Alexandria Wedding Bands | BME',
         description: 'Timeless music for historic Old Town Alexandria weddings and corporate events.',
-        heroImage: '/location_alexandria_historic_venue.png',
+        heroImage: '/location_alexandria_historic_venue_1764514955153.png',
         content: 'Old Town Alexandria offers a historic charm that is unmatched. Our bands understand how to complement these unique venues, providing entertainment that is classic yet contemporary, respecting the history while bringing the party.',
         localVibe: 'Historic, charming, and romantic.',
         popularEventTypes: ['Historic Venue Weddings', 'Riverfront Receptions', 'Corporate Dinners', 'Holiday Parties'],
@@ -132,7 +132,7 @@ export const locations: LocationData[] = [
         name: 'Silver Spring',
         title: 'Silver Spring Event Entertainment | BME',
         description: 'Live bands and DJs for Silver Spring, Takoma Park, and Wheaton events.',
-        heroImage: '/location_silver_spring_live_music.png',
+        heroImage: '/location_silver_spring_live_music_1764514968226.png',
         content: 'Silver Spring\'s arts and entertainment district demands a certain caliber of performance. BME brings that energy. From outdoor festivals to private parties at the Fillmore, we provide the soundtrack that keeps the community moving.',
         localVibe: 'Diverse, artistic, and vibrant.',
         popularEventTypes: ['Community Festivals', 'Private Parties', 'Cultural Events', 'Weddings'],
@@ -145,7 +145,7 @@ export const locations: LocationData[] = [
         nearby_cities: ['Bethesda', 'Washington D.C.', 'Rockville'],
         gallery: [
             '/images/gallery/dc_anthem_concert_1764701195393.png',
-            '/images/gallery/bethesda_country_club_1764731508165.png'
+            '/images/gallery/baltimore_industrial_band_1764701251032.png'
         ]
     }
 ];
