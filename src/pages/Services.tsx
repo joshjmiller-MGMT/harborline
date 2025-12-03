@@ -28,19 +28,30 @@ const Services = () => {
     ];
 
     return (
-        <div className="page-enter" style={{ paddingTop: '120px', paddingBottom: '4rem', minHeight: '100vh', backgroundColor: 'var(--color-bg)' }}>
+        <div className="page-enter" style={{ backgroundColor: 'var(--color-bg)', minHeight: '100vh' }}>
             <SEO
                 title="Our Services | Corporate, Wedding & Private Events"
                 description="From high-energy dance bands to sophisticated jazz quartets, explore our range of entertainment services for any occasion."
                 canonical="/services"
             />
-            <div className="container">
-                <div style={{ textAlign: 'center', marginBottom: '6rem' }}>
-                    <h1 className="section-title">Our Services</h1>
-                    <p style={{ color: '#a1a1aa', maxWidth: '600px', margin: '0 auto', fontSize: '1.2rem' }}>
-                        Bespoke entertainment solutions for every occasion.
-                    </p>
+
+            {/* Hero Section */}
+            <section className="hero-section" style={{ height: '60vh', minHeight: '400px' }}>
+                <div className="hero-bg" style={{ backgroundImage: 'url(/corporate.png)' }}></div>
+                <div className="hero-overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), #050505)' }}></div>
+                <div className="container hero-content">
+                    <FadeIn direction="up">
+                        <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginBottom: '0.5rem' }}>
+                            Our Services
+                        </h1>
+                        <p className="hero-subtitle" style={{ fontSize: '1.25rem', color: '#D4AF37', fontWeight: 600 }}>
+                            Bespoke Entertainment Solutions
+                        </p>
+                    </FadeIn>
                 </div>
+            </section>
+
+            <div className="container" style={{ paddingTop: '6rem', paddingBottom: '4rem' }}>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
                     {services.map((service, index) => (

@@ -32,19 +32,30 @@ const Portfolio = () => {
     const categories = ['All', 'Corporate', 'Weddings', 'Concerts', 'Private'];
 
     return (
-        <div className="page-enter" style={{ paddingTop: '120px', paddingBottom: '4rem', minHeight: '100vh', backgroundColor: 'var(--color-bg)' }}>
+        <div className="page-enter" style={{ backgroundColor: 'var(--color-bg)', minHeight: '100vh' }}>
             <SEO
                 title="Portfolio | Harborline Events Gallery"
                 description="View our selected works and live performance highlights. See why Harborline is the top choice for event entertainment."
                 canonical="/portfolio"
             />
-            <div className="container">
-                <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-                    <h1 className="section-title">Selected Works</h1>
-                    <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto', fontSize: '1.2rem' }}>
-                        Trusted by Fortune 500 companies, luxury brands, and discerning couples worldwide.
-                    </p>
+
+            {/* Hero Section */}
+            <section className="hero-section" style={{ height: '60vh', minHeight: '400px' }}>
+                <div className="hero-bg" style={{ backgroundImage: 'url(/bands.png)' }}></div>
+                <div className="hero-overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), #050505)' }}></div>
+                <div className="container hero-content">
+                    <FadeIn direction="up">
+                        <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginBottom: '0.5rem' }}>
+                            Selected Works
+                        </h1>
+                        <p className="hero-subtitle" style={{ fontSize: '1.25rem', color: '#D4AF37', fontWeight: 600 }}>
+                            Trusted by Fortune 500 Companies & Luxury Brands
+                        </p>
+                    </FadeIn>
                 </div>
+            </section>
+
+            <div className="container" style={{ paddingTop: '6rem', paddingBottom: '4rem' }}>
 
                 {/* Vimeo Showcase Embed */}
                 <div style={{ padding: '56.25% 0 0 0', position: 'relative', marginBottom: '4rem', backgroundColor: '#000', borderRadius: '8px', overflow: 'hidden' }}>

@@ -3,16 +3,32 @@ import FadeIn from '../components/FadeIn';
 
 const About = () => {
     return (
-        <div className="page-enter" style={{ paddingTop: '120px', paddingBottom: '4rem', minHeight: '100vh', backgroundColor: 'var(--color-bg)' }}>
+        <div className="page-enter" style={{ backgroundColor: 'var(--color-bg)', minHeight: '100vh' }}>
             <SEO
                 title="About Us | Baltimore Music & Entertainment"
                 description="We are a collective of industry-leading musicians and event professionals dedicated to elevating your event experience."
                 canonical="/about"
             />
-            <div className="container">
+
+            {/* Hero Section */}
+            <section className="hero-section" style={{ height: '60vh', minHeight: '400px' }}>
+                <div className="hero-bg" style={{ backgroundImage: 'url(/sax.png)' }}></div>
+                <div className="hero-overlay" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), #050505)' }}></div>
+                <div className="container hero-content">
+                    <FadeIn direction="up">
+                        <h1 className="hero-title" style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', marginBottom: '0.5rem' }}>
+                            Our Story
+                        </h1>
+                        <p className="hero-subtitle" style={{ fontSize: '1.25rem', color: '#D4AF37', fontWeight: 600 }}>
+                            A Collective of Industry-Leading Musicians
+                        </p>
+                    </FadeIn>
+                </div>
+            </section>
+
+            <div className="container" style={{ paddingTop: '4rem' }}>
                 <FadeIn direction="up">
                     <div style={{ maxWidth: '800px', margin: '0 auto 6rem', textAlign: 'center' }}>
-                        <h1 className="section-title">Our Story</h1>
                         <p style={{ fontSize: '1.5rem', color: '#a1a1aa', lineHeight: '1.6' }}>
                             We are a team of musicians, producers, and creatives dedicated to the art of celebration.
                         </p>
