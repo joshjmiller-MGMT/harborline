@@ -6,18 +6,21 @@ const Services = () => {
     const services = [
         {
             title: 'Corporate Events',
+            slug: 'corporate-entertainment',
             image: '/corporate.png',
             desc: 'From annual galas to product launches, we provide entertainment that aligns with your brand identity. Jazz trios for cocktail hours, high-energy party bands for the after-party, and everything in between.',
             features: ['Brand-aligned performances', 'Walk-on/Walk-off music', 'Full AV production support']
         },
         {
             title: 'Weddings',
+            slug: 'wedding-bands',
             image: '/weddings.png',
             desc: 'Your special day deserves a soundtrack to match. We work closely with couples to curate a musical journey from the ceremony to the last dance.',
             features: ['Ceremony strings', 'Cocktail hour jazz', 'High-energy reception bands']
         },
         {
             title: 'Headliners & Concerts',
+            slug: 'private-party-djs', // Mapping to closest relevant page for now, or could be a new one
             image: '/bands.png',
             desc: 'Looking for a name act? We have direct access to touring artists and headliners suitable for festivals, private concerts, and large-scale events.',
             features: ['Talent buying', 'Rider fulfillment', 'Logistics management']
@@ -64,7 +67,10 @@ const Services = () => {
                                             </li>
                                         ))}
                                     </ul>
-                                    <Link to="/contact" className="btn">Inquire Now</Link>
+                                    <div style={{ display: 'flex', gap: '1rem' }}>
+                                        <Link to={`/services/${service.slug}`} className="btn" style={{ backgroundColor: 'transparent', border: '1px solid #fff' }}>Learn More</Link>
+                                        <Link to="/contact" className="btn">Inquire Now</Link>
+                                    </div>
                                 </div>
                             </div>
                         </FadeIn>

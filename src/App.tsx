@@ -9,6 +9,8 @@ import Contact from './pages/Contact';
 import LocationPage from './pages/LocationPage';
 import ScrollToTop from './components/ScrollToTop';
 import { locations } from './data/locations';
+import { servicesData } from './data/services';
+import ServicePage from './pages/ServicePage';
 
 function App() {
   return (
@@ -22,6 +24,16 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
+
+          {/* SEO Service Pages */}
+          {servicesData.map((service) => (
+            <Route
+              key={service.slug}
+              path={`/services/${service.slug}`}
+              element={<ServicePage data={service} />}
+            />
+          ))}
+
           {/* SEO Location Pages */}
           {locations.map((loc) => (
             <Route

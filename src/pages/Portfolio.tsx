@@ -17,12 +17,12 @@ const Portfolio = () => {
     const [showEmbed, setShowEmbed] = useState(false);
 
     const projects = [
-        { id: 1, title: 'Neon Nights Festival', category: 'Concerts', image: '/hero.png', year: '2024' },
-        { id: 2, title: 'Tech Summit Gala', category: 'Corporate', image: '/corporate.png', year: '2024' },
-        { id: 3, title: 'Eleanor & James', category: 'Weddings', image: '/weddings.png', year: '2023' },
-        { id: 4, title: 'The Midnight Groovers', category: 'Concerts', image: '/bands.png', year: '2023' },
-        { id: 5, title: 'Global Finance Awards', category: 'Corporate', image: '/hero.png', year: '2023' },
-        { id: 6, title: 'Summer Solstice Party', category: 'Private', image: '/corporate.png', year: '2024' },
+        { id: 1, title: 'Neon Nights Festival Headliner', category: 'Concerts', image: '/hero.png', year: '2024' },
+        { id: 2, title: 'Tech Summit Inaugural Gala', category: 'Corporate', image: '/corporate.png', year: '2024' },
+        { id: 3, title: 'Luxury Estate Wedding: Eleanor & James', category: 'Weddings', image: '/weddings.png', year: '2023' },
+        { id: 4, title: 'The Midnight Groovers: Live at The Anthem', category: 'Concerts', image: '/bands.png', year: '2023' },
+        { id: 5, title: 'Global Finance Awards Ceremony', category: 'Corporate', image: '/hero.png', year: '2023' },
+        { id: 6, title: 'Summer Solstice Private Soiree', category: 'Private', image: '/corporate.png', year: '2024' },
     ];
 
     const filteredProjects = filter === 'All'
@@ -42,7 +42,7 @@ const Portfolio = () => {
                 <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
                     <h1 className="section-title">Selected Works</h1>
                     <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto', fontSize: '1.2rem' }}>
-                        A curated collection of our most memorable events.
+                        Trusted by Fortune 500 companies, luxury brands, and discerning couples worldwide.
                     </p>
                 </div>
 

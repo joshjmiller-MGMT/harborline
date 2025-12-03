@@ -79,7 +79,12 @@ export const locations: LocationData[] = [
             { question: "Do you perform on boats?", answer: "Yes, we have compact setups perfect for yacht parties and cruises out of the harbor." },
             { question: "Do you serve the Eastern Shore?", answer: "We frequently cross the bridge for events at the Chesapeake Bay Beach Club and beyond." }
         ],
-        nearby_cities: ['Baltimore', 'Washington D.C.', 'Alexandria']
+        nearby_cities: ['Baltimore', 'Washington D.C.', 'Alexandria'],
+        gallery: [
+            '/images/gallery/annapolis_yacht_party_1764731435974.png',
+            '/images/gallery/annapolis_dockside_wedding_1764731456553.png',
+            '/images/gallery/annapolis_naval_academy_event_1764731469969.png'
+        ]
     },
     {
         slug: 'bethesda',
@@ -96,7 +101,10 @@ export const locations: LocationData[] = [
             { question: "Are you insured for country clubs?", answer: "Yes, we carry full liability insurance required by all major venues and country clubs." },
             { question: "Do you do Mitzvahs?", answer: "Yes! We have high-energy bands and DJs perfect for Mitzvah celebrations." }
         ],
-        nearby_cities: ['Washington D.C.', 'Silver Spring', 'Alexandria']
+        nearby_cities: ['Washington D.C.', 'Silver Spring', 'Alexandria'],
+        gallery: [
+            '/images/gallery/bethesda_country_club.png'
+        ]
     },
     {
         slug: 'alexandria',
@@ -113,23 +121,31 @@ export const locations: LocationData[] = [
             { question: "Can you play in historic buildings?", answer: "Yes, we are experienced with the sound restrictions and load-in logistics of historic properties." },
             { question: "Do you offer ceremony music?", answer: "Yes, we have string trios and harpists available for ceremonies." }
         ],
-        nearby_cities: ['Washington D.C.', 'Arlington', 'National Harbor']
+        nearby_cities: ['Washington D.C.', 'Arlington', 'National Harbor'],
+        gallery: [
+            '/images/gallery/dc_lincoln_wedding_1764701180933.png',
+            '/images/gallery/annapolis_dockside_wedding_1764731456553.png'
+        ]
     },
     {
         slug: 'silver-spring',
         name: 'Silver Spring',
-        title: 'Silver Spring Live Music & DJs | BME',
-        description: 'Dynamic entertainment for Silver Spring\'s cultural center and music venues.',
+        title: 'Silver Spring Event Entertainment | BME',
+        description: 'Live bands and DJs for Silver Spring, Takoma Park, and Wheaton events.',
         heroImage: '/location_silver_spring_live_music.png',
-        content: 'Silver Spring is a hub of culture and arts. We bring dynamic, diverse entertainment to match the community\'s energy. Perfect for festivals at the Civic Building or modern weddings at local venues.',
-        localVibe: 'Diverse, artistic, and modern.',
-        popularEventTypes: ['Cultural Festivals', 'Modern Weddings', 'Community Events', 'Live Music Nights'],
-        venues: ['The Fillmore Silver Spring', 'Silver Spring Civic Building', 'AFI Silver Theatre'],
-        specific_services: 'Our roster includes diverse acts ranging from Latin fusion to modern pop, reflecting the vibrant culture of Silver Spring.',
+        content: 'Silver Spring\'s arts and entertainment district demands a certain caliber of performance. BME brings that energy. From outdoor festivals to private parties at the Fillmore, we provide the soundtrack that keeps the community moving.',
+        localVibe: 'Diverse, artistic, and vibrant.',
+        popularEventTypes: ['Community Festivals', 'Private Parties', 'Cultural Events', 'Weddings'],
+        venues: ['The Fillmore Silver Spring', 'Civic Building', 'Veterans Plaza'],
+        specific_services: 'We offer a wide range of musical styles to match the diversity of the area, from Latin jazz to top 40.',
         faq: [
-            { question: "Do you support community events?", answer: "We love working with local organizations for festivals and public events." },
-            { question: "Do you have bilingual MCs?", answer: "Yes, we have bilingual MCs and performers available upon request." }
+            { question: "Do you have experience with diverse crowds?", answer: "Yes, our DJs and bands are experts at reading diverse rooms and playing for all ages and backgrounds." },
+            { question: "Can you play outdoors?", answer: "We have full outdoor production capabilities for festivals and plaza events." }
         ],
-        nearby_cities: ['Bethesda', 'Washington D.C.', 'Baltimore']
+        nearby_cities: ['Bethesda', 'Washington D.C.', 'Rockville'],
+        gallery: [
+            '/images/gallery/dc_anthem_concert_1764701195393.png',
+            '/images/gallery/bethesda_country_club_1764731508165.png'
+        ]
     }
 ];

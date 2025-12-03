@@ -22,12 +22,12 @@ const About = () => {
                 <div className="grid-2" style={{ marginBottom: '8rem' }}>
                     <FadeIn direction="left">
                         <div>
-                            <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: '#fff', fontWeight: 300 }}>Redefining <span style={{ fontWeight: 700, color: '#2563eb' }}>Live Entertainment</span></h2>
+                            <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: '#fff', fontWeight: 300 }}>The Standard for <span style={{ fontWeight: 700, color: '#2563eb' }}>Luxury Entertainment</span></h2>
                             <p style={{ color: '#d4d4d8', lineHeight: '1.8', marginBottom: '1.5rem', fontSize: '1.1rem' }}>
-                                Baltimore Music & Entertainment was founded on a simple premise: that live entertainment should be nothing short of spectacular. We aren't just a booking agency; we are curators of atmosphere, architects of energy, and partners in creating memories that last a lifetime.
+                                Baltimore Music & Entertainment isn't just a booking agency; we are the region's premier curator of atmosphere. We understand that entertainment is the heartbeat of any event, and we refuse to compromise on quality. Our mission is simple: to provide an experience that is as flawless as it is unforgettable.
                             </p>
                             <p style={{ color: '#d4d4d8', lineHeight: '1.8', fontSize: '1.1rem' }}>
-                                With a roster of the world's most talented musicians, performers, and production experts, we bridge the gap between artistic excellence and seamless event execution. Whether it's an intimate wedding or a massive corporate gala, we bring the same level of passion and precision to every stage.
+                                With an exclusive roster of the Mid-Atlantic's most accomplished musicians and production experts, we bridge the gap between artistic excellence and seamless event execution. From intimate diplomatic dinners to large-scale corporate galas, we bring a level of sophistication and energy that is unmatched in the industry.
                             </p>
                         </div>
                     </FadeIn>
@@ -63,9 +63,9 @@ const About = () => {
                         <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '4rem' }}>Why Choose BME?</h2>
                     </FadeIn>
                     <div className="grid-3">                        {[
-                        { title: 'Curated Talent', desc: 'Every artist on our roster is vetted for exceptional skill, style, and professionalism. We don\'t settle for "good enough".' },
-                        { title: 'Seamless Production', desc: 'We handle the technical details—sound, lighting, staging—so you can focus on enjoying the event with your guests.' },
-                        { title: 'Tailored Experiences', desc: 'No two events are alike. We customize every setlist, lineup, and performance to match your specific vision.' }
+                        { title: 'Elite Talent Roster', desc: 'We represent only the top 1% of musicians in the region. Every artist is vetted for exceptional skill, style, and unwavering professionalism.' },
+                        { title: 'Flawless Production', desc: 'We handle every technical detail—from concert-grade sound to intelligent lighting—ensuring a seamless experience for you and your guests.' },
+                        { title: 'Bespoke Curation', desc: 'Your event is unique. We customize every setlist, lineup, and performance to align perfectly with your vision and brand identity.' }
                     ].map((item, i) => (
                         <FadeIn key={i} delay={i * 0.1} direction="up">
                             <div style={{

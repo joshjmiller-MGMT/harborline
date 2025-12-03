@@ -19,6 +19,46 @@ const Home = () => {
                 <Services />
             </FadeIn>
 
+            {/* Service SEO Links */}
+            <section style={{ padding: '4rem 0', backgroundColor: '#050505', borderTop: '1px solid #27272a' }}>
+                <div className="container">
+                    <FadeIn direction="up">
+                        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem' }}>
+                            {[
+                                { name: 'Wedding Bands', slug: 'wedding-bands' },
+                                { name: 'Corporate Entertainment', slug: 'corporate-entertainment' },
+                                { name: 'Private Party DJs', slug: 'private-party-djs' },
+                                { name: 'Jazz Ensembles', slug: 'jazz-ensembles' }
+                            ].map((service) => (
+                                <Link
+                                    key={service.slug}
+                                    to={`/services/${service.slug}`}
+                                    style={{
+                                        color: '#a1a1aa',
+                                        textDecoration: 'none',
+                                        fontSize: '0.9rem',
+                                        border: '1px solid #3f3f46',
+                                        padding: '0.5rem 1.25rem',
+                                        borderRadius: '20px',
+                                        transition: 'all 0.3s ease'
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.borderColor = '#D4AF37';
+                                        e.currentTarget.style.color = '#fff';
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.borderColor = '#3f3f46';
+                                        e.currentTarget.style.color = '#a1a1aa';
+                                    }}
+                                >
+                                    {service.name}
+                                </Link>
+                            ))}
+                        </div>
+                    </FadeIn>
+                </div>
+            </section>
+
             {/* CTA Section */}
             <section style={{ padding: '8rem 0', backgroundColor: '#09090b', textAlign: 'center' }}>
                 <div className="container">

@@ -39,12 +39,31 @@ const Footer = () => {
 
                     {/* Navigation */}
                     <div>
-                        <h4 style={{ fontSize: '1rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1.5rem', color: '#fff' }}>Explore</h4>
+                        <h4 style={{ fontSize: '1rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1.5rem', color: '#fff' }}>Company</h4>
                         <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                             {['About', 'Services', 'Portfolio', 'Contact'].map(item => (
                                 <li key={item}>
                                     <Link to={`/${item.toLowerCase()}`} style={{ color: '#a1a1aa', fontSize: '0.95rem' }} className="footer-link">
                                         {item}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Services */}
+                    <div>
+                        <h4 style={{ fontSize: '1rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '1.5rem', color: '#fff' }}>Services</h4>
+                        <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                            {[
+                                { name: 'Wedding Bands', slug: 'wedding-bands' },
+                                { name: 'Corporate Events', slug: 'corporate-entertainment' },
+                                { name: 'Private Party DJs', slug: 'private-party-djs' },
+                                { name: 'Jazz Ensembles', slug: 'jazz-ensembles' }
+                            ].map(service => (
+                                <li key={service.slug}>
+                                    <Link to={`/services/${service.slug}`} style={{ color: '#a1a1aa', fontSize: '0.95rem' }} className="footer-link">
+                                        {service.name}
                                     </Link>
                                 </li>
                             ))}
