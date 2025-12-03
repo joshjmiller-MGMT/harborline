@@ -15,11 +15,28 @@ const ServicePage = ({ data }: ServicePageProps) => {
         "@type": "Service",
         "name": title,
         "description": description,
+        "serviceType": "Event Entertainment",
         "provider": {
-            "@type": "LocalBusiness",
-            "name": "Baltimore Music & Entertainment"
+            "@type": "EntertainmentBusiness",
+            "name": "Baltimore Music & Entertainment",
+            "url": "https://harborline.com",
+            "image": "https://harborline.com/logo.png"
         },
-        "areaServed": ["Washington DC", "Maryland", "Virginia"]
+        "areaServed": [
+            { "@type": "City", "name": "Washington DC" },
+            { "@type": "State", "name": "Maryland" },
+            { "@type": "State", "name": "Virginia" }
+        ],
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Event Planners, Couples, Corporate Clients"
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "Varies",
+            "availability": "https://schema.org/InStock"
+        }
     };
 
     return (

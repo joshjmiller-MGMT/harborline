@@ -12,6 +12,35 @@ const Home = () => {
                 title="Baltimore Music & Entertainment | Premier Event Entertainment in DC & MD"
                 description="Baltimore Music & Entertainment provides bespoke live music and entertainment for corporate events, weddings, and private parties in Washington DC, Maryland, and Virginia."
                 canonical="/"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "EntertainmentBusiness",
+                    "name": "Baltimore Music & Entertainment",
+                    "url": "https://harborline.com", // TODO: Update with real domain
+                    "logo": "https://harborline.com/logo.png",
+                    "image": "https://harborline.com/hero.png",
+                    "description": "Premier event entertainment agency serving Washington DC, Maryland, and Virginia. Specializing in wedding bands, corporate entertainment, and private party DJs.",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "123 Harbor East", // Placeholder
+                        "addressLocality": "Baltimore",
+                        "addressRegion": "MD",
+                        "postalCode": "21202",
+                        "addressCountry": "US"
+                    },
+                    "geo": {
+                        "@type": "GeoCoordinates",
+                        "latitude": 39.2835,
+                        "longitude": -76.6006
+                    },
+                    "areaServed": ["Washington DC", "Maryland", "Virginia", "Baltimore", "Annapolis"],
+                    "priceRange": "$$$",
+                    "telephone": "+1-555-123-4567", // Placeholder
+                    "sameAs": [
+                        "https://www.instagram.com/baltimoremusic",
+                        "https://www.facebook.com/baltimoremusic"
+                    ]
+                }}
             />
             <Hero />
 
