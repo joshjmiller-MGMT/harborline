@@ -24,7 +24,7 @@ const LocationPage = ({ data }: LocationPageProps) => {
     const schema = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": `Baltimore Music & Entertainment - ${city}`,
+        "name": `Harborline - ${city}`,
         "description": seoDesc,
         "url": `https://harborline.com/locations/${data.slug}`,
         "areaServed": city,
@@ -64,7 +64,7 @@ const LocationPage = ({ data }: LocationPageProps) => {
 
                         {/* Intro & Venues */}
                         <FadeIn direction="up">
-                            <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>Why Choose BME in {city}?</h2>
+                            <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>Why Choose Harborline in {city}?</h2>
                             <p style={{ fontSize: '1.15rem', lineHeight: '1.6', color: '#d4d4d8', marginBottom: '3rem', textAlign: 'center' }}>
                                 {intro}
                             </p>

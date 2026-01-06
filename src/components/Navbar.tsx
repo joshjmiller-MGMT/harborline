@@ -29,8 +29,9 @@ const Navbar = () => {
     return (
         <nav className={navbarClass}>
             <div className="container nav-container">
-                <Link to="/" className="nav-logo" onClick={() => setIsOpen(false)}>
-                    BALTIMORE MUSIC & ENTERTAINMENT
+                <Link to="/" className="nav-logo" onClick={() => setIsOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <img src="/images/branding/logo-vertical-black.jpeg" alt="Harborline Logo" style={{ height: '40px', borderRadius: '4px' }} />
+                    HARBORLINE
                 </Link>
 
                 {/* Mobile Toggle */}

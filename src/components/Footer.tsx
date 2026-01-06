@@ -10,7 +10,7 @@ const Footer = () => {
                     {/* Brand Column */}
                     <div>
                         <Link to="/" style={{ fontSize: '1.5rem', fontWeight: 900, letterSpacing: '2px', display: 'block', marginBottom: '1.5rem' }}>
-                            BALTIMORE MUSIC & ENTERTAINMENT
+                            HARBORLINE
                         </Link>
                         <p style={{ color: '#a1a1aa', lineHeight: '1.6', marginBottom: '2rem' }}>
                             Curating world-class entertainment for the most exclusive events across the globe. We bring the energy, you keep the memories.
@@ -136,7 +136,7 @@ const Footer = () => {
                     fontSize: '0.85rem'
                 }}>
                     <div>
-                        © {new Date().getFullYear()} Baltimore Music & Entertainment. All rights reserved.
+                        © {new Date().getFullYear()} Harborline. All rights reserved.
                     </div>
                     <div style={{ display: 'flex', gap: '2rem' }}>
                         <span>Privacy Policy</span>

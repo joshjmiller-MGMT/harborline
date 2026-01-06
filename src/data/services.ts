@@ -17,7 +17,7 @@ export const servicesData: ServiceData[] = [
         subtitle: 'Unforgettable Music for Your Special Day',
         description: 'Premier wedding bands in Washington DC, Maryland, and Virginia. High-energy dance bands, jazz quartets, and ceremony strings for luxury weddings.',
         heroImage: '/images/gallery/dc_lincoln_wedding_1764701180933.png',
-        content: 'Your wedding day is a once-in-a-lifetime celebration, and the music should reflect that. BME provides industry-leading wedding bands that know how to read a crowd, pack a dance floor, and create moments of pure magic. From the first note of the processional to the last song of the night, we curate a musical journey that is uniquely yours.',
+        content: 'Your wedding day is a once-in-a-lifetime celebration, and the music should reflect that. Harborline provides industry-leading wedding bands that know how to read a crowd, pack a dance floor, and create moments of pure magic. From the first note of the processional to the last song of the night, we curate a musical journey that is uniquely yours.',
         features: ['Custom Setlists', 'Continuous Music', 'MC Services', 'Ceremony & Cocktail Options'],
         faq: [
             { question: "Can we choose our songs?", answer: "Absolutely. We work with you to build a setlist that reflects your taste, including special requests for first dances." },
@@ -34,14 +34,14 @@ export const servicesData: ServiceData[] = [
         subtitle: 'Elevate Your Brand Experience',
         description: 'Professional corporate entertainment for galas, awards dinners, and conferences in Washington DC and Baltimore.',
         heroImage: '/images/gallery/dc_union_station_gala_1764701210684.png',
-        content: 'Redefining the corporate event standard. Whether you\'re hosting a black-tie gala, a product launch, or a holiday party, BME delivers entertainment that aligns with your brand and engages your guests. We understand the flow of high-stakes corporate functions and provide seamless, professional service from start to finish.',
+        content: 'Redefining the corporate event standard. Whether you\'re hosting a black-tie gala, a product launch, or a holiday party, Harborline delivers entertainment that aligns with your brand and engages your guests. We understand the flow of high-stakes corporate functions and provide seamless, professional service from start to finish.',
         features: ['Walk-on/Walk-off Cues', 'Background Jazz', 'High-Energy After Party', 'Full AV Support'],
         faq: [
             { question: "Can you play quietly during dinner?", answer: "Yes, we specialize in volume-controlled performances that allow for comfortable conversation." },
             { question: "Do you handle insurance?", answer: "We carry full liability insurance and can provide COIs for any venue." }
         ],
         testimonials: [
-            { quote: "BME understood exactly what we needed for our gala. Classy and energetic.", author: "David T.", role: "Event Planner" },
+            { quote: "Harborline understood exactly what we needed for our gala. Classy and energetic.", author: "David T.", role: "Event Planner" },
             { quote: "Seamless execution from start to finish. Highly recommended.", author: "Jessica L.", role: "Marketing Director" }
         ]
     },

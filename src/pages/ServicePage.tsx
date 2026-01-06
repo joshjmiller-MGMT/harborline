@@ -18,9 +18,9 @@ const ServicePage = ({ data }: ServicePageProps) => {
         "serviceType": "Event Entertainment",
         "provider": {
             "@type": "EntertainmentBusiness",
-            "name": "Baltimore Music & Entertainment",
+            "name": "Harborline",
             "url": "https://harborline.com",
-            "image": "https://harborline.com/logo.png"
+            "image": "https://harborline.com/images/branding/logo-vertical-black.jpeg"
         },
         "areaServed": [
             { "@type": "City", "name": "Washington DC" },
@@ -42,7 +42,7 @@ const ServicePage = ({ data }: ServicePageProps) => {
     return (
         <div className="page-enter" style={{ backgroundColor: '#050505', minHeight: '100vh' }}>
             <SEO
-                title={`${title} | Baltimore Music & Entertainment`}
+                title={`${title} | Harborline`}
                 description={description}
                 image={heroImage}
                 schema={schema}

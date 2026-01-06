@@ -3,23 +3,24 @@ import Hero from '../components/Hero';
 import Services from '../components/Services';
 import SEO from '../components/SEO';
 import FadeIn from '../components/FadeIn';
+import LeadForm from '../components/LeadForm';
 import { locations } from '../data/locations';
 
 const Home = () => {
     return (
         <div className="page-enter">
             <SEO
-                title="Baltimore Music & Entertainment | Premier Event Entertainment in DC & MD"
-                description="Baltimore Music & Entertainment provides bespoke live music and entertainment for corporate events, weddings, and private parties in Washington DC, Maryland, and Virginia."
+                title="Harborline | Baltimore's Premier Live Band"
+                description="Harborline is Baltimore’s go-to live band for weddings, corporate events, galas, and private parties. Booking now for 2026."
                 canonical="/"
                 schema={{
                     "@context": "https://schema.org",
                     "@type": "EntertainmentBusiness",
-                    "name": "Baltimore Music & Entertainment",
+                    "name": "Harborline",
                     "url": "https://harborline.com", // TODO: Update with real domain
-                    "logo": "https://harborline.com/logo.png",
+                    "logo": "https://harborline.com/images/branding/logo-vertical-black.jpeg",
                     "image": "https://harborline.com/hero.png",
-                    "description": "Premier event entertainment agency serving Washington DC, Maryland, and Virginia. Specializing in wedding bands, corporate entertainment, and private party DJs.",
+                    "description": "Baltimore’s go-to live band for weddings, corporate events, galas, and private parties.",
                     "address": {
                         "@type": "PostalAddress",
                         "streetAddress": "123 Harbor East", // Placeholder
@@ -43,6 +44,31 @@ const Home = () => {
                 }}
             />
             <Hero />
+
+            <section style={{ padding: '6rem 0', backgroundColor: '#09090b', borderBottom: '1px solid #27272a' }}>
+                <div className="container">
+                     <div className="grid-2" style={{ alignItems: 'start' }}>
+                        <FadeIn direction="right">
+                            <div style={{ position: 'sticky', top: '100px' }}>
+                                <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '1.5rem' }}>Start the Party</h2>
+                                <p style={{ color: '#a1a1aa', fontSize: '1.1rem', marginBottom: '2rem', lineHeight: '1.7' }}>
+                                    <strong>Bookings for 2026 are open.</strong>
+                                    <br />
+                                    Fill out the form to check availability and get a custom quote.
+                                    <br /><br />
+                                    Prefer email? Reach us at:<br />
+                                    <a href="mailto:harborlineband@gmail.com" style={{ color: '#D4AF37', fontWeight: 'bold' }}>harborlineband@gmail.com</a>
+                                </p>
+                            </div>
+                        </FadeIn>
+                        <FadeIn direction="left">
+                            <div style={{ backgroundColor: '#18181b', padding: '2rem', borderRadius: '8px', border: '1px solid #27272a' }}>
+                                <LeadForm />
+                            </div>
+                        </FadeIn>
+                     </div>
+                </div>
+            </section>
 
             <FadeIn>
                 <Services />
@@ -88,19 +114,6 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section style={{ padding: '8rem 0', backgroundColor: '#09090b', textAlign: 'center' }}>
-                <div className="container">
-                    <FadeIn direction="up">
-                        <h2 className="section-title">Ready to Elevate Your Event?</h2>
-                        <p style={{ color: '#a1a1aa', maxWidth: '600px', margin: '0 auto 3rem', fontSize: '1.2rem' }}>
-                            Contact us today to discuss your vision and receive a custom proposal.
-                        </p>
-                        <Link to="/contact" className="btn">Get in Touch</Link>
-                    </FadeIn>
-                </div>
-            </section>
-
             {/* Testimonials */}
             <section style={{ padding: '8rem 0', backgroundColor: '#000' }}>
                 <div className="container">
@@ -109,7 +122,7 @@ const Home = () => {
                     </FadeIn>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
                         {[
-                            { quote: "BME transformed our gala. The band was electric, and the production was flawless.", author: "Sarah M., Event Planner" },
+                            { quote: "Harborline transformed our gala. The band was electric, and the production was flawless.", author: "Sarah M., Event Planner" },
                             { quote: "I've never seen a dance floor that packed for that long. Truly world-class talent.", author: "James R., Corporate Client" },
                             { quote: "From the first email to the last song, working with them was a dream.", author: "Emily & David, Newlyweds" }
                         ].map((t, i) => (

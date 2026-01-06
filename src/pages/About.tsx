@@ -5,7 +5,7 @@ const About = () => {
     return (
         <div className="page-enter" style={{ backgroundColor: 'var(--color-bg)', minHeight: '100vh' }}>
             <SEO
-                title="About Us | Baltimore Music & Entertainment"
+                title="About Us | Harborline"
                 description="We are a collective of industry-leading musicians and event professionals dedicated to elevating your event experience."
                 canonical="/about"
             />
@@ -40,7 +40,7 @@ const About = () => {
                         <div>
                             <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: '#fff', fontWeight: 300 }}>The Standard for <span style={{ fontWeight: 700, color: '#2563eb' }}>Luxury Entertainment</span></h2>
                             <p style={{ color: '#d4d4d8', lineHeight: '1.8', marginBottom: '1.5rem', fontSize: '1.1rem' }}>
-                                Baltimore Music & Entertainment isn't just a booking agency; we are the region's premier curator of atmosphere. We understand that entertainment is the heartbeat of any event, and we refuse to compromise on quality. Our mission is simple: to provide an experience that is as flawless as it is unforgettable.
+                                Harborline isn't just a booking agency; we are the region's premier curator of atmosphere. We understand that entertainment is the heartbeat of any event, and we refuse to compromise on quality. Our mission is simple: to provide an experience that is as flawless as it is unforgettable.
                             </p>
                             <p style={{ color: '#d4d4d8', lineHeight: '1.8', fontSize: '1.1rem' }}>
                                 With an exclusive roster of the Mid-Atlantic's most accomplished musicians and production experts, we bridge the gap between artistic excellence and seamless event execution. From intimate diplomatic dinners to large-scale corporate galas, we bring a level of sophistication and energy that is unmatched in the industry.
@@ -76,7 +76,7 @@ const About = () => {
 
                 <div style={{ marginBottom: '8rem' }}>
                     <FadeIn direction="up">
-                        <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '4rem' }}>Why Choose BME?</h2>
+                        <h2 className="section-title" style={{ textAlign: 'center', marginBottom: '4rem' }}>Why Choose Harborline?</h2>
                     </FadeIn>
                     <div className="grid-3">                        {[
                         { title: 'Elite Talent Roster', desc: 'We represent only the top 1% of musicians in the region. Every artist is vetted for exceptional skill, style, and unwavering professionalism.' },
