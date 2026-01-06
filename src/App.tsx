@@ -13,6 +13,7 @@ import BackToTop from './components/BackToTop';
 import { locations } from './data/locations';
 import { servicesData } from './data/services';
 import ServicePage from './pages/ServicePage';
+import Success from './pages/Success';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/success" element={<Success />} />
 
           {/* SEO Service Pages */}
           {servicesData.map((service) => (
