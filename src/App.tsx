@@ -10,6 +10,7 @@ import LocationPage from './pages/LocationPage';
 import ScrollToTop from './components/ScrollToTop';
 import ScrollProgress from './components/ScrollProgress';
 import BackToTop from './components/BackToTop';
+import Admin from './pages/Admin';
 import { locations } from './data/locations';
 import { servicesData } from './data/services';
 import ServicePage from './pages/ServicePage';
@@ -30,6 +31,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/admin" element={<Admin />} />
 
           {/* SEO Service Pages */}
           {servicesData.map((service) => (
