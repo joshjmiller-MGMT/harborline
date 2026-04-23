@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 interface SessionLog {
   id: string; title: string; date: string; summary: string;
@@ -14,11 +14,6 @@ interface RunOfShow {
   grandEntrance: string; grandEntranceSong: string; firstDance: string; firstDanceSong: string;
   parentDances: string; cakeCutting: string; cakeSong: string; lastSong: string;
   specialRequests: string; notes: string;
-}
-interface ClaudeLogEntry {
-  id: string; session_id: string; date: string; title: string; type: string;
-  topics: string[]; tools_used: string[]; files_created: string[];
-  summary: string; key_decisions: string[]; loose_ends: string[]; created_at: string;
 }
 
 const ADMIN_PASSWORD = 'harborline2026';
@@ -132,219 +127,6 @@ function SessionDashboard() {
           </div>
         </div>
       ))}
-    </div>
-  );
-}
-
-// ─── Claude Log ────────────────────────────────────────────────────────────────
-const SB_URL = 'https://uqrpshzgonoopcwjglzl.supabase.co';
-const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxcnBzaHpnb25vb3Bjd2pnbHpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0NTc5NDUsImV4cCI6MjA5MjAzMzk0NX0.MI0M8Cwz3gdnePHxnAJHoeBV1gxfvP0LOwhCRcY8sm8';
-
-function ClaudeLog() {
-  const [entries, setEntries] = useState<ClaudeLogEntry[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [fetchError, setFetchError] = useState('');
-  const [showAdd, setShowAdd] = useState(false);
-  const [showImport, setShowImport] = useState(false);
-  const [importText, setImportText] = useState('');
-  const [importError, setImportError] = useState('');
-  const [copied, setCopied] = useState(false);
-  const [expanded, setExpanded] = useState<string | null>(null);
-  const [form, setForm] = useState({ title: '', date: '', summary: '', loose_ends: '', topics: '', type: 'Cowork' });
-
-  const sbHeaders = {
-    'apikey': SB_KEY,
-    'Authorization': `Bearer ${SB_KEY}`,
-    'Content-Type': 'application/json',
-  };
-
-  const fetchEntries = async () => {
-    setLoading(true); setFetchError('');
-    try {
-      const res = await fetch(`${SB_URL}/rest/v1/claude_log?select=*&order=date.desc,created_at.desc`, { headers: sbHeaders });
-      if (!res.ok) throw new Error();
-      setEntries(await res.json());
-    } catch { setFetchError('Could not load entries from Supabase.'); }
-    finally { setLoading(false); }
-  };
-
-  useEffect(() => { fetchEntries(); }, []);
-
-  const addEntry = async () => {
-    if (!form.title.trim() || !form.summary.trim()) return;
-    await fetch(`${SB_URL}/rest/v1/claude_log`, {
-      method: 'POST',
-      headers: { ...sbHeaders, 'Prefer': 'return=minimal' },
-      body: JSON.stringify({
-        session_id: `manual_${Date.now()}`,
-        date: form.date || new Date().toISOString().split('T')[0],
-        title: form.title,
-        type: form.type,
-        summary: form.summary,
-        topics: form.topics.split(',').map(t => t.trim()).filter(Boolean),
-        tools_used: [] as string[],
-        files_created: [] as string[],
-        key_decisions: [] as string[],
-        loose_ends: form.loose_ends.split(',').map(t => t.trim()).filter(Boolean),
-      }),
-    });
-    setForm({ title: '', date: '', summary: '', loose_ends: '', topics: '', type: 'Cowork' });
-    setShowAdd(false);
-    fetchEntries();
-  };
-
-  const deleteEntry = async (id: string) => {
-    await fetch(`${SB_URL}/rest/v1/claude_log?id=eq.${id}`, { method: 'DELETE', headers: sbHeaders });
-    setEntries(prev => prev.filter(e => e.id !== id));
-  };
-
-  const exportAll = () => {
-    navigator.clipboard.writeText(JSON.stringify(entries, null, 2));
-    setCopied(true); setTimeout(() => setCopied(false), 2000);
-  };
-
-  const importEntries = async () => {
-    try {
-      const parsed = JSON.parse(importText) as ClaudeLogEntry[];
-      if (!Array.isArray(parsed)) throw new Error();
-      const existingIds = new Set(entries.map(e => e.id));
-      const toInsert = parsed.filter(e => !existingIds.has(e.id));
-      if (toInsert.length === 0) { setImportError('No new entries to import.'); return; }
-      for (const entry of toInsert) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { id: _id, created_at: _ca, ...rest } = entry;
-        await fetch(`${SB_URL}/rest/v1/claude_log`, {
-          method: 'POST',
-          headers: { ...sbHeaders, 'Prefer': 'return=minimal' },
-          body: JSON.stringify(rest),
-        });
-      }
-      setImportText(''); setShowImport(false); setImportError('');
-      fetchEntries();
-    } catch { setImportError('Invalid JSON — paste the exported log from another machine.'); }
-  };
-
-  const iS: React.CSSProperties = { width: '100%', padding: '0.6rem 0.85rem', backgroundColor: '#09090b', border: '1px solid #3f3f46', borderRadius: '6px', color: '#fff', fontSize: '0.9rem', boxSizing: 'border-box', outline: 'none' };
-  const lS: React.CSSProperties = { color: '#a1a1aa', fontSize: '0.78rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'block', marginBottom: '0.35rem' };
-
-  return (
-    <div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-        <div>
-          <h2 style={{ color: '#fff', fontSize: '1.4rem', margin: 0 }}>Claude Log</h2>
-          <p style={{ color: '#a1a1aa', margin: '0.4rem 0 0', fontSize: '0.9rem' }}>
-            Synced across all machines via the cloud.{!loading && ` · ${entries.length} entr${entries.length === 1 ? 'y' : 'ies'}`}
-          </p>
-        </div>
-        <div style={{ display: 'flex', gap: '0.75rem' }}>
-          <button onClick={() => setShowImport(!showImport)} style={{ padding: '0.6rem 1.2rem', backgroundColor: 'transparent', border: '1px solid #3f3f46', borderRadius: '6px', color: '#a1a1aa', cursor: 'pointer', fontSize: '0.9rem' }}>Import</button>
-          <button onClick={exportAll} style={{ padding: '0.6rem 1.2rem', backgroundColor: 'transparent', border: '1px solid #3f3f46', borderRadius: '6px', color: copied ? '#4ade80' : '#a1a1aa', cursor: 'pointer', fontSize: '0.9rem' }}>{copied ? 'Copied!' : 'Export JSON'}</button>
-          <button onClick={() => setShowAdd(!showAdd)} style={{ padding: '0.6rem 1.2rem', backgroundColor: '#D4AF37', border: 'none', borderRadius: '6px', color: '#000', cursor: 'pointer', fontWeight: 700, fontSize: '0.9rem' }}>+ Add Entry</button>
-        </div>
-      </div>
-
-      {fetchError && (
-        <div style={{ backgroundColor: '#1c0a0a', border: '1px solid #7f1d1d', borderRadius: '8px', padding: '1rem', marginBottom: '1.5rem', color: '#fca5a5', fontSize: '0.9rem' }}>
-          {fetchError} <button onClick={fetchEntries} style={{ marginLeft: '1rem', color: '#fca5a5', background: 'none', border: '1px solid #7f1d1d', borderRadius: '4px', cursor: 'pointer', fontSize: '0.85rem', padding: '0.2rem 0.6rem' }}>Retry</button>
-        </div>
-      )}
-
-      {showImport && (
-        <div style={{ backgroundColor: '#18181b', border: '1px solid #27272a', borderRadius: '10px', padding: '1.5rem', marginBottom: '1.5rem' }}>
-          <p style={{ color: '#a1a1aa', fontSize: '0.85rem', margin: '0 0 0.75rem' }}>Paste exported JSON to merge entries into Supabase:</p>
-          <textarea value={importText} onChange={e => { setImportText(e.target.value); setImportError(''); }} rows={6}
-            style={{ width: '100%', backgroundColor: '#09090b', border: `1px solid ${importError ? '#ef4444' : '#3f3f46'}`, borderRadius: '6px', color: '#d4d4d8', padding: '0.75rem', fontSize: '0.82rem', fontFamily: 'monospace', resize: 'vertical', boxSizing: 'border-box' }}
-            placeholder='[{"id":"...","date":"...","title":"...","summary":"..."}]' />
-          {importError && <p style={{ color: '#ef4444', fontSize: '0.82rem', margin: '0.5rem 0 0' }}>{importError}</p>}
-          <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.75rem', justifyContent: 'flex-end' }}>
-            <button onClick={() => { setShowImport(false); setImportError(''); }} style={{ padding: '0.5rem 1rem', backgroundColor: 'transparent', border: '1px solid #3f3f46', borderRadius: '6px', color: '#a1a1aa', cursor: 'pointer' }}>Cancel</button>
-            <button onClick={importEntries} style={{ padding: '0.5rem 1rem', backgroundColor: '#D4AF37', border: 'none', borderRadius: '6px', color: '#000', fontWeight: 700, cursor: 'pointer' }}>Merge Entries</button>
-          </div>
-        </div>
-      )}
-
-      {showAdd && (
-        <div style={{ backgroundColor: '#18181b', border: '1px solid #D4AF37', borderRadius: '10px', padding: '1.5rem', marginBottom: '1.5rem' }}>
-          <h3 style={{ color: '#D4AF37', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', margin: '0 0 1.25rem' }}>New Log Entry</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
-            <div><label style={lS}>Session Title</label><input style={iS} value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} placeholder="e.g. GitHub MCP Setup" /></div>
-            <div><label style={lS}>Date</label><input style={iS} type="date" value={form.date} onChange={e => setForm(f => ({ ...f, date: e.target.value }))} /></div>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
-            <div>
-              <label style={lS}>Type</label>
-              <select style={iS} value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))}>
-                <option>Cowork</option><option>Manual</option><option>Note</option>
-              </select>
-            </div>
-            <div><label style={lS}>Topics (comma separated)</label><input style={iS} value={form.topics} onChange={e => setForm(f => ({ ...f, topics: e.target.value }))} placeholder="github, admin, setup" /></div>
-          </div>
-          <div style={{ marginBottom: '0.75rem' }}><label style={lS}>What was worked on</label><textarea style={{ ...iS, resize: 'vertical', fontFamily: 'inherit' }} rows={3} value={form.summary} onChange={e => setForm(f => ({ ...f, summary: e.target.value }))} placeholder="Summarize what Claude helped with this session..." /></div>
-          <div style={{ marginBottom: '1rem' }}><label style={lS}>Loose Ends / Next Steps (comma separated)</label><input style={iS} value={form.loose_ends} onChange={e => setForm(f => ({ ...f, loose_ends: e.target.value }))} placeholder="What to pick up next time..." /></div>
-          <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end' }}>
-            <button onClick={() => setShowAdd(false)} style={{ padding: '0.5rem 1rem', backgroundColor: 'transparent', border: '1px solid #3f3f46', borderRadius: '6px', color: '#a1a1aa', cursor: 'pointer' }}>Cancel</button>
-            <button onClick={addEntry} style={{ padding: '0.5rem 1.25rem', backgroundColor: '#D4AF37', border: 'none', borderRadius: '6px', color: '#000', fontWeight: 700, cursor: 'pointer' }}>Save Entry</button>
-          </div>
-        </div>
-      )}
-
-      {loading ? (
-        <div style={{ textAlign: 'center', padding: '4rem 2rem', color: '#52525b' }}>
-          <p style={{ fontSize: '1rem', margin: 0 }}>Loading from Supabase...</p>
-        </div>
-      ) : entries.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: '4rem 2rem', color: '#52525b' }}>
-          <p style={{ fontSize: '1rem', margin: 0 }}>No log entries yet.</p>
-          <p style={{ fontSize: '0.85rem', marginTop: '0.5rem' }}>Add an entry after each session so the next machine knows what was done.</p>
-        </div>
-      ) : entries.map(entry => {
-        const isOpen = expanded === entry.id;
-        const looseEnds = entry.loose_ends || [];
-        const topics = entry.topics || [];
-        const tools = entry.tools_used || [];
-        return (
-          <div key={entry.id} style={{ backgroundColor: '#18181b', border: `1px solid ${isOpen ? '#D4AF37' : '#27272a'}`, borderRadius: '10px', padding: '1.25rem 1.5rem', marginBottom: '0.75rem', cursor: 'pointer', transition: 'border-color 0.2s' }} onClick={() => setExpanded(isOpen ? null : entry.id)}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem' }}>
-                  <span style={{ backgroundColor: '#27272a', color: '#D4AF37', fontSize: '0.75rem', padding: '0.15rem 0.6rem', borderRadius: '20px', whiteSpace: 'nowrap', fontWeight: 600 }}>{entry.type || 'Cowork'}</span>
-                  <span style={{ color: '#52525b', fontSize: '0.8rem' }}>{entry.date}</span>
-                  <span style={{ color: '#3f3f46', fontSize: '0.75rem', marginLeft: 'auto' }}>{new Date(entry.created_at).toLocaleDateString()}</span>
-                </div>
-                <h3 style={{ color: '#fff', margin: '0 0 0.2rem', fontSize: '1rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: isOpen ? 'normal' : 'nowrap' }}>{entry.title}</h3>
-                <p style={{ color: '#a1a1aa', fontSize: '0.85rem', margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: isOpen ? 'normal' : 'nowrap' }}>{entry.summary?.slice(0, 140)}</p>
-              </div>
-              {looseEnds.length > 0 && !isOpen && (
-                <span style={{ backgroundColor: '#1e3a5f', color: '#60a5fa', fontSize: '0.75rem', padding: '0.2rem 0.6rem', borderRadius: '20px', marginLeft: '1rem', whiteSpace: 'nowrap' }}>
-                  {looseEnds.length} loose end{looseEnds.length !== 1 ? 's' : ''}
-                </span>
-              )}
-            </div>
-            {isOpen && (
-              <div style={{ marginTop: '1rem', borderTop: '1px solid #27272a', paddingTop: '1rem' }}>
-                <p style={{ color: '#d4d4d8', fontSize: '0.9rem', lineHeight: 1.6, margin: '0 0 1rem', whiteSpace: 'pre-wrap' }}>{entry.summary}</p>
-                {looseEnds.length > 0 && (
-                  <div style={{ marginBottom: '0.75rem' }}>
-                    <p style={{ color: '#D4AF37', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.08em', margin: '0 0 0.4rem' }}>Loose Ends</p>
-                    <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                      {looseEnds.map((s, i) => <li key={i} style={{ color: '#d4d4d8', fontSize: '0.88rem', padding: '0.25rem 0', borderBottom: '1px solid #27272a' }}>→ {s}</li>)}
-                    </ul>
-                  </div>
-                )}
-                {topics.length > 0 && (
-                  <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
-                    {topics.map((t, i) => <span key={i} style={{ backgroundColor: '#1e3a5f', color: '#60a5fa', fontSize: '0.73rem', padding: '0.15rem 0.5rem', borderRadius: '20px' }}>{t}</span>)}
-                  </div>
-                )}
-                {tools.length > 0 && (
-                  <p style={{ color: '#52525b', fontSize: '0.78rem', margin: '0 0 0.75rem' }}>Tools: {tools.join(', ')}</p>
-                )}
-                <button onClick={e => { e.stopPropagation(); deleteEntry(entry.id); }} style={{ padding: '0.35rem 0.8rem', backgroundColor: 'transparent', border: '1px solid #3f3f46', borderRadius: '5px', color: '#71717a', cursor: 'pointer', fontSize: '0.8rem' }}>Delete Entry</button>
-              </div>
-            )}
-          </div>
-        );
-      })}
     </div>
   );
 }
@@ -465,11 +247,11 @@ function RunOfShowGenerator() {
   );
 }
 
-type Tab = 'sessions' | 'claudelog' | 'runofshow';
+type Tab = 'sessions' | 'runofshow';
 
 export default function Admin() {
   const [unlocked, setUnlocked] = useState(false);
-  const [tab, setTab] = useState<Tab>('claudelog');
+  const [tab, setTab] = useState<Tab>('runofshow');
 
   if (!unlocked) return <PasswordGate onUnlock={() => setUnlocked(true)} />;
 
@@ -488,7 +270,6 @@ export default function Admin() {
             <p style={{ color: '#52525b', margin: 0, fontSize: '0.85rem' }}>Internal tools</p>
           </div>
           <div style={{ display: 'flex', gap: '0.75rem' }}>
-            {tabBtn('claudelog', 'Claude Log')}
             {tabBtn('sessions', 'Session Logs')}
             {tabBtn('runofshow', 'Run of Show')}
           </div>
@@ -496,7 +277,6 @@ export default function Admin() {
       </div>
       <div className="container" style={{ paddingBottom: '4rem' }}>
         {tab === 'sessions' && <SessionDashboard />}
-        {tab === 'claudelog' && <ClaudeLog />}
         {tab === 'runofshow' && <RunOfShowGenerator />}
       </div>
     </div>
