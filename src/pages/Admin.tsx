@@ -1,12 +1,9 @@
 import { useState, useRef } from 'react';
+import PracticeLog from '../components/PracticeLog';
 
 interface SessionLog {
   id: string; title: string; date: string; summary: string;
   nextSteps: string[]; files: string[]; raw: string;
-}
-interface LogEntry {
-  id: string; timestamp: string; machine: string; context: string;
-  summary: string; nextSteps: string; tags: string[];
 }
 interface RunOfShow {
   clientName: string; eventDate: string; venue: string; eventType: string; guestCount: string;
@@ -74,7 +71,7 @@ function SessionDashboard() {
     setPasteText(''); setPasteMode(false);
   };
 
-  const card: React.CSSProperties = { backgroundColor: '#18181b', border: '1px solid #27272a', borderRadius: '10px', padding: '1.5rem', marginBottom: '1rem', cursor: 'pointer', transition: 'border-color 0.2s' };
+  const cardStyle: React.CSSProperties = { backgroundColor: '#18181b', border: '1px solid #27272a', borderRadius: '10px', padding: '1.5rem', marginBottom: '1rem', cursor: 'pointer', transition: 'border-color 0.2s' };
 
   return (
     <div>
@@ -90,7 +87,7 @@ function SessionDashboard() {
         </div>
       </div>
       {pasteMode && (
-        <div style={{ ...card, cursor: 'default', marginBottom: '2rem' }}>
+        <div style={{ ...cardStyle, cursor: 'default', marginBottom: '2rem' }}>
           <textarea value={pasteText} onChange={e => setPasteText(e.target.value)} rows={6} style={{ width: '100%', backgroundColor: '#09090b', border: '1px solid #3f3f46', borderRadius: '6px', color: '#d4d4d8', padding: '0.75rem', fontSize: '0.85rem', fontFamily: 'monospace', resize: 'vertical', boxSizing: 'border-box' }} placeholder="# Session Title..." />
           <div style={{ display: 'flex', gap: '0.75rem', marginTop: '0.75rem', justifyContent: 'flex-end' }}>
             <button onClick={() => setPasteMode(false)} style={{ padding: '0.5rem 1rem', backgroundColor: 'transparent', border: '1px solid #3f3f46', borderRadius: '6px', color: '#a1a1aa', cursor: 'pointer' }}>Cancel</button>
@@ -99,7 +96,7 @@ function SessionDashboard() {
         </div>
       )}
       {selected && (
-        <div style={{ ...card, cursor: 'default', borderColor: '#2563eb', marginBottom: '2rem' }}>
+        <div style={{ ...cardStyle, cursor: 'default', borderColor: '#2563eb', marginBottom: '2rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1.5rem' }}>
             <div><h3 style={{ color: '#fff', margin: 0, fontSize: '1.2rem' }}>{selected.title}</h3><span style={{ color: '#a1a1aa', fontSize: '0.85rem' }}>{selected.date}</span></div>
             <div style={{ display: 'flex', gap: '0.5rem' }}>
@@ -116,7 +113,7 @@ function SessionDashboard() {
           <p style={{ fontSize: '1rem', margin: 0 }}>No session logs yet. Upload a .md file or paste one above.</p>
         </div>
       ) : sessions.map(session => (
-        <div key={session.id} style={{ ...card, borderColor: selected?.id === session.id ? '#2563eb' : '#27272a' }} onClick={() => setSelected(session.id === selected?.id ? null : session)}>
+        <div key={session.id} style={{ ...cardStyle, borderColor: selected?.id === session.id ? '#2563eb' : '#27272a' }} onClick={() => setSelected(session.id === selected?.id ? null : session)}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
             <div style={{ flex: 1, minWidth: 0 }}>
               <h3 style={{ color: '#fff', margin: '0 0 0.25rem', fontSize: '1rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{session.title}</h3>
@@ -131,7 +128,7 @@ function SessionDashboard() {
   );
 }
 
-// ─── Run of Show ───────────────────────────────────────────────────────────────
+// ─── Run of Show ───────────────────────────────────────────────────────────────────────────
 const emptyROS: RunOfShow = {
   clientName: '', eventDate: '', venue: '', eventType: 'Wedding', guestCount: '',
   cocktailTime: '', cocktailStyle: 'Jazz/Standards', dinnerTime: '', dinnerStyle: 'Background Jazz',
@@ -147,7 +144,7 @@ function RunOfShowGenerator() {
 
   const generateROS = () => {
     setGenerated([
-      '# RUN OF SHOW — ' + (form.clientName.toUpperCase() || 'EVENT'),
+      '# RUN OF SHOW \u2014 ' + (form.clientName.toUpperCase() || 'EVENT'),
       '**Date:** ' + (form.eventDate || '___'), '**Venue:** ' + (form.venue || '___'),
       '**Event Type:** ' + form.eventType, '**Guest Count:** ' + (form.guestCount || '___'),
       '', '---', '', '## TIMELINE', '',
@@ -156,9 +153,9 @@ function RunOfShowGenerator() {
       '| ' + (form.dinnerTime || '___') + ' | Dinner | Style: ' + form.dinnerStyle + ' |',
       '| ' + (form.grandEntrance || '___') + ' | Grand Entrance | Song: ' + (form.grandEntranceSong || '___') + ' |',
       '| ' + (form.firstDance || '___') + ' | First Dance | Song: ' + (form.firstDanceSong || '___') + ' |',
-      '| ' + (form.parentDances || '___') + ' | Parent Dances | — |',
+      '| ' + (form.parentDances || '___') + ' | Parent Dances | \u2014 |',
       '| ' + (form.cakeCutting || '___') + ' | Cake Cutting | Song: ' + (form.cakeSong || '___') + ' |',
-      '| ' + (form.lastSong || '___') + ' | Last Dance | — |',
+      '| ' + (form.lastSong || '___') + ' | Last Dance | \u2014 |',
       '', '---', '', '## SPECIAL REQUESTS', form.specialRequests || 'None.',
       '', '## NOTES', form.notes || 'None.',
       '', '---', '*Generated by Harborline Admin*',
@@ -247,11 +244,11 @@ function RunOfShowGenerator() {
   );
 }
 
-type Tab = 'sessions' | 'runofshow';
+type Tab = 'practice' | 'sessions' | 'runofshow';
 
 export default function Admin() {
   const [unlocked, setUnlocked] = useState(false);
-  const [tab, setTab] = useState<Tab>('runofshow');
+  const [tab, setTab] = useState<Tab>('practice');
 
   if (!unlocked) return <PasswordGate onUnlock={() => setUnlocked(true)} />;
 
@@ -270,12 +267,14 @@ export default function Admin() {
             <p style={{ color: '#52525b', margin: 0, fontSize: '0.85rem' }}>Internal tools</p>
           </div>
           <div style={{ display: 'flex', gap: '0.75rem' }}>
+            {tabBtn('practice', 'Practice Log')}
             {tabBtn('sessions', 'Session Logs')}
             {tabBtn('runofshow', 'Run of Show')}
           </div>
         </div>
       </div>
       <div className="container" style={{ paddingBottom: '4rem' }}>
+        {tab === 'practice' && <PracticeLog />}
         {tab === 'sessions' && <SessionDashboard />}
         {tab === 'runofshow' && <RunOfShowGenerator />}
       </div>
