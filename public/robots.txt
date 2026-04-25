@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://harborline.com/sitemap.xml
+Sitemap: https://harborlineband.com/sitemap.xml
